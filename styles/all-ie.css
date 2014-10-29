@@ -1,0 +1,30 @@
+.referral_system_left{	
+	background:url('images/referral_system.png') #f1efd9 no-repeat 20px 0px !important;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	height:71px !important;
+}
+.buyPoint {
+	box-shadow: inset 0px -4px 0px 0px #226f88;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+.buyVip {
+	box-shadow: inset 0px -4px 0px 0px #508d1d;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-top: 3px;
+}
+.Requestpayment {
+	box-shadow: inset 0px -4px 0px 0px #c88809;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-top: 3px;
+}

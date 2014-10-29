@@ -1,0 +1,120 @@
+input:hover[type="submit"] {
+background: #FF9900;
+}
+input {
+transition: 0.2s all ease;
+}
+
+input.submitfb {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submitfb:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFF00;
+width: 160px;
+background: url("img/b_fb.png?a") no-repeat scroll 3px center #00549F;
+}
+
+input.submityt {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submityt:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFF00;
+width: 160px;
+background: url("img/b_yt.png?b") no-repeat scroll 3px center #c51e20;
+}
+
+input.submitsu {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submitsu:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFFFF;
+width: 160px;
+background: url("img/b_su.png") no-repeat scroll 3px center #F99900;
+}
+
+input.submitis {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submitis:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFFFF;
+width: 160px;
+background: url("img/b_is.jpg?b") no-repeat scroll 0px 0px #F99900;
+}
+
+input.submitrv {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submitrv:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFFFF;
+width: 160px;
+background: url("img/b_rv.png") no-repeat scroll 3px center #606060;
+}
+
+input.submittw {
+		background: #904090;
+		border: 0px solid #333;
+		border-radius: 0px 15px 15px 0px;
+		color: #fff;
+		font: bold 12px/16px Lucida Grande, Lucida, Verdana, sans-serif;
+		width: 130px;
+		height: 35px;
+		padding: 0px 0px 0px 0px;
+		transition: 0.4s all ease;
+}
+input.submittw:hover {
+padding: 0px 0px 0px 30px;
+border-radius: 0px 20px 5px 0px;
+color: #FFFFFF;
+width: 160px;
+background: url("img/b_tw.png") no-repeat scroll 3px center #00aced;
+}

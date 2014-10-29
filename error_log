@@ -1,0 +1,18 @@
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 3
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(header.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 3
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(): Failed opening 'header.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/likespla/public_html/index.php on line 3
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(index_v2.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 5
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(index_v2.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 5
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(): Failed opening 'index_v2.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/likespla/public_html/index.php on line 5
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 9
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/likespla/public_html/index.php on line 9
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/likespla/public_html/index.php on line 9
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/likespla/public_html/live.php on line 2
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(config.php): failed to open stream: No such file or directory in /home/likespla/public_html/live.php on line 2
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(): Failed opening 'config.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/likespla/public_html/live.php on line 2
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  mysql_query(): Access denied for user 'likespla'@'localhost' (using password: NO) in /home/likespla/public_html/live.php on line 17
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/likespla/public_html/live.php on line 17
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  mysql_fetch_object(): supplied argument is not a valid MySQL result resource in /home/likespla/public_html/live.php on line 20
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(footeraddon.php): failed to open stream: No such file or directory in /home/likespla/public_html/live.php on line 97
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(footeraddon.php): failed to open stream: No such file or directory in /home/likespla/public_html/live.php on line 97
+[23-Oct-2014 07:28:49 UTC] PHP Warning:  include(): Failed opening 'footeraddon.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/likespla/public_html/live.php on line 97
