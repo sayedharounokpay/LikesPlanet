@@ -1,0 +1,14 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 31, 2014, 1:15:36 PM
+    Author     : Administrator
+*/
+
+ul.pagination li a .active {
+    color:black;
+    background-color:blue;
+}
