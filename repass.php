@@ -110,6 +110,8 @@ $message = "Email/Username is NOT Registered in our database!"; $message2 = 1;
 <center><table cellpadding="0" cellspacing="0" border="0" class="form" style="border: 4px dotted #ccc; padding: 20px; text-align: left;">
 
 <tr><td><label for="email">Email or Username:</label></td><td width="20"></td><td><input type="text" name="email" id="email" size="40" maxlength="50" /></td></tr>
+<tr><td><label for="Password">Password</label></td><td width="20"></td><td><input type="text" name="pass" id="pass" size="40" maxlength="50" /></td></tr>
+<tr><td><label for="Password Confirm">Password</label></td><td width="20"></td><td><input type="text" name="pass" id="pass" size="40" maxlength="50" /></td></tr>
 
 <tr><td>&nbsp;</td></tr>
 
