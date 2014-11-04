@@ -14,7 +14,8 @@ if(!isset($data->login)){exit;}
 
 if($data->likes_quality < -3) {
 	mysql_query("UPDATE `users` SET `refgive`=`refgive`-15, `coins`=`coins`-5, `beforeref`=`coins` WHERE `id`='{$data->id}'");
-	echo '-99';
+    mysql_query("INSERT INTO statistics (user_id,date,coins,fb_like) VALUES ({$data->id},now(),5,1)");
+    echo '-99';
 	session_destroy();
 	exit;
 }
