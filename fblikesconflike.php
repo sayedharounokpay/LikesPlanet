@@ -108,7 +108,7 @@ $coinsadded = -1 + $site->cpc;
 mysql_query("INSERT INTO `liked` (user_id, site_id) VALUES('{$data->id}','{$site->id}')");
 mysql_query("UPDATE `facebook` SET `likes`=`likes`+'1', `lastreallikes`='{$likesnumnum}', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$coinsadded}', `hitstoday`=`hitstoday`+1, `likes`=`likes`+1, `likes_quality`=`likes_quality`+1  WHERE `id`='{$data->id}'");
-
+mysql_query("INSERT INTO statistics (user_id,date,points_gained,fb_like) VALUES ({$data->id},now(),{$coinsadded},1)");
 if($data->likes_quality <= 0) {
 mysql_query("UPDATE `users` SET `likes_quality`=`likes_quality`+1  WHERE (`id`='{$data->id}') ;");
 }

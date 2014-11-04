@@ -129,7 +129,7 @@ $pass =mysql_real_escape_string($_POST['pass']);
 //$pass = stripslashes(str_replace("'\"","", $_POST['pass'] ));
 //echo $pass;
 str_replace("'", "", $UserInput);
-$pass=md5($pass);
+$hashed_pass = md5($pass);
 $dbres = mysql_query("SELECT * FROM `users` WHERE (`login`='{$user}' OR `email`='{$user}') AND `pass`='{$pass}'");
 
 //echo "SELECT * FROM `users` WHERE (`login`='{$_POST['username']}' OR `email`='{$_POST['username']}') AND `pass`='{$pass}'";

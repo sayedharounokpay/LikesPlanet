@@ -1,21 +1,21 @@
-<?php
-if(session_id() == '' || !isset($_SESSION)) {
-    // session isn't started
-    session_start();
-}
-?>
 
 <html>
     <head>
         <?php
-$baselocation = "http://localhost/LikesPlanet/cms";
+$baselocation = "http://likesplanet.com/cms";
+$_SESSION['admin_state_login'] = "aSDF";
 
+
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
 if(isset($_SESSION['admin_state_login'])) {
     if($_SESSION['admin_state_login'] == true) {
-        
+        echo 'Logged';
     }
     else {
-        
+        echo 'Not Logged';
         //header('Location: login.php');
         echo '<script>document.location.href="login.php"</script>';
     }

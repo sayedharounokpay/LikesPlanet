@@ -92,7 +92,7 @@ mysql_query("UPDATE `adsb` SET `views`=`views`+'1', `points`=`points`-'1' WHERE 
 </a>
 <?}
 }
-?> </center> <?
+?> </center> <?php
 
 
 
@@ -136,7 +136,9 @@ $pass = $_POST['password'];
 	}
 
 $referrrlla = $_POST['referralll'];
+$pass = md5($pass);
 if ($referrrlla == "") {
+
 mysql_query("INSERT INTO `users`(email,login,IP,pass,signup,code,country,reg_ip) values('{$_POST['email']}','{$_POST['user']}','$final','$pass',NOW(),'$str', '$x111022', '$final' )");
 }else{
 $userreff = mysql_fetch_object(mysql_query("SELECT * FROM `users` WHERE `login` = '{$referrrlla}' "));

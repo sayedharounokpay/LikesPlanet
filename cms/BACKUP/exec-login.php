@@ -25,7 +25,7 @@ if(isset($_POST['admin_username'])) {
             while ($stmt->fetch()) {
                 if($password){
                     if($pass == md5($password)){
-                        if($id == 1 || $id == 2){
+                        if($id == 1){
                         $_SESSION['admin_state_login'] = TRUE;
                         $result = TRUE;
                         echo 'success';

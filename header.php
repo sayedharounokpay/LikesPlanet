@@ -1,5 +1,6 @@
-<?
+<?php
 include('config.php');
+
 if($site->maintenance > 0){
 echo "<script>document.location.href='maintenance'</script>";
 exit;
@@ -168,6 +169,9 @@ function numberWithCommas(x) {
 </script>
 </head>
 <body>
+<!--<div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
+<span style="color:red">Notification:</span>
+</div> -->
 
 	    <div class="headerContainer">
 		<div class="headerInner">
@@ -188,6 +192,7 @@ function numberWithCommas(x) {
 							<li><a href="help.php" id="home">How it works?  </a></li>
 														<? if(isset($data->login)){?>
 							<li><a href="index.php?rnd=<? echo rand(1,100); ?>" class="login">Account</a></li>
+                            <li><a href="myaccount.php" class="login">Change Account Details</a></li>
 							<li><a href="logout.php?rnd=<? echo rand(1,100); ?>" class="login" >Logout</a></li>
 							<?}else{?>
 							<li><a href="login.php?rnd=<? echo rand(1,100); ?>" class="login">login</a></li>

@@ -2,7 +2,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "likespla_ankur625";
+$db = "likespla_ankur";
+
 
 $db = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($link));
-$link = mysql_connect('localhost', $user, $pass);
