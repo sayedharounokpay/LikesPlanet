@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 foreach($_POST as $key => $value) {
 	$protect[$key] = filter($value);
