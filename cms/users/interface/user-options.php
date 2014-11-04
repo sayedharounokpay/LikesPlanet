@@ -1,16 +1,15 @@
 <h1>User Options</h1>
 
 <?php
-    $query = "SELECT login, email, admin_login, id FROM users WHERE id=?";
+    $query = "SELECT login, admin_login, id FROM users WHERE id=?";
     $user=array();
     if($stmt = $db->prepare($query)) {
         $stmt->bind_param("i",$_GET['id']);
         $stmt->execute();
-        $stmt->bind_result($login,$email,$admin_login,$id);
+        $stmt->bind_result($login,$admin_login,$id);
         $stmt->fetch();
        
         $user['login'] = $login;
-        $user['email'] = $email;
         $user['admin_login'] = $admin_login;
         $user['id'] = $id;
         
@@ -31,10 +30,6 @@
     <div class='form-group'>
         <label class=''>Username: </label>
         <input type='text' name='login' class='form-control' value='<?=$user['login']?>'/>
-    </div>
-    <div class='form-group'>
-        <label class=''>Email: </label>
-        <input type='text' name='email' class='form-control'value='<?=$user['email']?>'/>
     </div>
     <div class='form-group' style=''>
         <label class=''>Available for access to manage: </label>

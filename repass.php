@@ -11,32 +11,37 @@ if(isset($_POST['add'])){
 	$verificare3 = mysql_num_rows($userr2);
 if ($verificare3 > 0) {
 $userrdata = mysql_fetch_object($userr2);
-$verificare4 = 0;
+$verificare5 = 0;
 if(isset($_POST['pass']) && strlen($_POST['pass']) > 1) {
     if(isset($_POST['repass']) && strlen($_POST['repass']) > 1) {
-        if($_POST['pass'] == $_post['repass']) {
-            $verificare4 = 1;
+        if($_POST['pass'] == $_POST['repass']) {
+            $verificare5 = 1;
         }
         else {
+            
             $message = "Passwords do not match. Try again";
+            echo $message;
         }
     }
     else {
         $message = "Please Re-enter password";
+        echo $message;
     }
 }
 else {
     $message = "Please enter a password";
+    echo $message;
 }
-if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"] && $verificare4 == 1) {
-$message = "Email have sent with Account Details!</br>Check both (Inbox) and (Spam) folders."; $message2 = 2;
 
+if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"] && $verificare5 == 1) {
+$message = "Email have sent with Account Details!</br>Check both (Inbox) and (Spam) folders."; $message2 = 2;
+$verificare4=1;
 	// To email address
 $email = $userrdata->email;
 $email_name = $userrdata->login;
 $new_pass = md5($_POST['pass']);
 //$strppp = $userrdata->pass;
-mysql_query("INSERT INTO reset_requests(user,newpass,completed) VALUES ('$email_name','$new_pass',0)");
+mysql_query("INSERT INTO pass_requests(user,newpass,completed) VALUES ('$email_name','$new_pass',0)");
 $insertID = mysql_insert_id();
 // From email address
 $from = "likesplanet.com@gmail.com";
@@ -96,9 +101,9 @@ $headers .= "Message-Id: <" . md5(uniqid(microtime())) . "@" . $_SERVER["SERVER_
 mail($email, $subject, $mailmessage, $headers);
 
 } else {
-$message = "Captcha code is NOT correct!"; $message2 = 1;
-if($verificare4 == 0) {
-    $message = "Incomplete/Incorect Details. Please try again";
+$message2 = 1;
+if($verificare4 != 1) {
+   $message = "Captcha code is NOT correct!"; 
 }
 }
 }
