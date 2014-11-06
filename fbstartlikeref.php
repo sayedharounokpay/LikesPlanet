@@ -14,7 +14,8 @@ if(!isset($data->login)){exit;}
 
 if($data->likes_quality < -3) {
 	mysql_query("UPDATE `users` SET `refgive`=`refgive`-15, `coins`=`coins`-5, `beforeref`=`coins` WHERE `id`='{$data->id}'");
-    mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like) VALUES ({$data->id},now(),5,1)");
+    mysql_query("INSERT INTO statistics (user_id,date,deducted,fb_like,log,page) VALUES ({$data->id},NOW(),5,1,'Coins Deducted From Bad Facebook Like | Page ID: {$site->id}','fbconflike.php')");
+
     echo '-99';
 	session_destroy();
 	exit;
@@ -24,12 +25,12 @@ mysql_query("UPDATE `users` SET `hitsbeforeref`=`hitsbeforeref`+1, `likes_qualit
 
 if($data->likes_quality < -99) {
 	mysql_query("UPDATE `users` SET `multi`=1, `coins`=`coins`-25, `beforeref`=`coins` WHERE (`id`='{$data->id}') ;");
-    mysql_query("INSERT INTO statistics(user_id,date,coins_deducted,fb_like) VALUES ({$data->id},now(),25,1)");
+    mysql_query("INSERT INTO statistics (user_id,date,deducted,fb_like,log,page) VALUES ({$data->id},NOW(),25,1,'Coins Deducted From Bad Facebook Like | Page ID: {$site->id}','fbconflike.php')");
     
 	mysql_query("UPDATE `users` SET `multi`=1, `coins`=`coins`-10, `beforeref`=`coins` WHERE (`lastip`='{$data->lastip}') ;");
     $list_result = mysql_query("SELECT * FROM users WHERE lastip - '{$data->lastip}'");
-    while($row = mysql_fetch_assoc($list_result)) {
-        mysql_query("INSERT INTO statistics(user_id,date,coins_deducted,fb_like) VALUES ({$row->id},now(),25,1)");
+    while($row = mysql_fetch_object($list_result)) {
+           mysql_query("INSERT INTO statistics (user_id,date,deducted,fb_like,log,page) VALUES ({$row->id},NOW(),5,1,'Coins Deducted From Bad Facebook Like | Page ID: {$site->id}','fbconflike.php')");
     }
 	if( $data->ref2 >= 1 ){
 	mysql_query("UPDATE `users` SET `refgive`=`refgive`-1000 WHERE `id`='{$data->id}'");
