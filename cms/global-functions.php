@@ -100,9 +100,10 @@ class dbTable {
         echo '<tbody>';
         global $db;
         if( $result = $db->query($query) ) {
-            while($row = $result->fetch_assoc()) {
-                // Dependencies Variables
+            // Dependencies Variables
                 $total=0;
+            while($row = $result->fetch_assoc()) {
+                
                 
                 //Code
                 echo '<tr>';
