@@ -87,7 +87,7 @@ if ($banodgoogle >= 40 AND $banodgoogle <= 90) { ?>
 				<ul>
 					<li><a href="contact.php?ref=<? echo rand(1,100);?>">Contact us</a></li>
 					<li><a href="payproof.php?ref=<? echo rand(1,100);?>">Payment Proofs</a></li>
-					<li><a href="chat.php?ref=<? echo rand(1,100);?>">Chat</a></li>
+					<!--<li><a href="chat.php?ref=<? echo rand(1,100);?>">Chat</a></li>-->
 					<li><a href="fan_sign_generator.php?ref=<? echo rand(1,100);?>">Fan Signs</a></li>
 				</ul>
 			</div>

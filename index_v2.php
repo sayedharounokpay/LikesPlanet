@@ -298,10 +298,10 @@ $likersALL = $likersAllOP->stat;
             if (randd < 39) {
                 UsersOnline1 = UsersOnline1 - 1;
             }
-            AddHitsMade1 = <?php echo $sitetotalmembersALL; ?> + AddHitsMade;
-            LikersStart1 = <?php echo $likersALL; ?> + LikersStart;
-            LastReg24 = <?php echo $sitestatmemberslast24->stat; ?> + LikersStart;
-            UsersOnline = <?php echo $sitestatmembersonline->stat; ?> + UsersOnline1;
+            AddHitsMade1 = <? echo $sitetotalmembersALL; ?> + AddHitsMade;
+            LikersStart1 = <? echo $likersALL; ?> + LikersStart;
+            LastReg24 = <? echo $sitestatmemberslast24->stat; ?> + LikersStart;
+            UsersOnline = <? echo $sitestatmembersonline->stat; ?> + UsersOnline1;
             $("#HintHits").html("<div class='bannerMid'><div class='bannerMidInner'><div class='raise'><p><span>" + numberWithCommas(AddHitsMade1) + "</span> &nbsp;&nbsp;Hits/likes delivered</br><span>" + numberWithCommas(LikersStart1) + "</span> &nbsp;&nbsp; Members and counting! </p> </div></div></div><div class='bannerBot'><div class='bannerBotInner'><div class='statistic' id='user'><p><span>" + numberWithCommas(LastReg24) + "</span> &nbsp; Members joined in the last 24 hours!</p></div><div class='statistic' id='online'><p><span>" + numberWithCommas(UsersOnline) + "</span> &nbsp; Online!</p></div></div></div>");
             setTimeout("DisplayHintCounter();", 70);
         }
