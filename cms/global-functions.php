@@ -36,7 +36,8 @@ class dbTable {
     public function display_search($search,$search_length=array()) {
         $link = $this->full_url($_SERVER);
         //echo $link;
-        $new_link = $link.'&search=true';
+        
+        $new_link = (strpos($link,'&search=true')) ? $link : $link.'&search=true';
         echo '<h4>Search</h4>';
         echo '<form class="form-horizontal" action="'.$new_link.'" style="display:block;margin-bottom:45px;" method="POST">';
         if(is_array($search)) {
