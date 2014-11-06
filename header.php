@@ -168,9 +168,10 @@ function numberWithCommas(x) {
 </script>
 </head>
 <body>
+    <!--
 <div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
 <span style="color:red">Notification:</span> This Nov 6, 2014 there will be a system enhancement that will take place to further increase stability, performance, and security of our website. During 12AM - 1AM (EST) the website will be offline. We hope to serve you better and would like to thank you in advance for your patience.
-</div>
+</div>-->
 
 	    <div class="headerContainer">
 		<div class="headerInner">
