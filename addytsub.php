@@ -57,6 +57,7 @@ mysql_query("INSERT INTO `ytsubed` (user_id, site_id) VALUES('{$data->id}','{$si
 if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 mysql_query("UPDATE `ytsub` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,yt_like,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Points Added To Youtube(Subscribers): {$site->id}','addytsub.php')");
 }
 $message = "Channel Added with success!"; $message2 = 2;
 

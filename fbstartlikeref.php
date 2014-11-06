@@ -14,7 +14,7 @@ if(!isset($data->login)){exit;}
 
 if($data->likes_quality < -3) {
 	mysql_query("UPDATE `users` SET `refgive`=`refgive`-15, `coins`=`coins`-5, `beforeref`=`coins` WHERE `id`='{$data->id}'");
-    mysql_query("INSERT INTO statistics (user_id,date,coins,fb_like) VALUES ({$data->id},now(),5,1)");
+    mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like) VALUES ({$data->id},now(),5,1)");
     echo '-99';
 	session_destroy();
 	exit;
@@ -24,10 +24,17 @@ mysql_query("UPDATE `users` SET `hitsbeforeref`=`hitsbeforeref`+1, `likes_qualit
 
 if($data->likes_quality < -99) {
 	mysql_query("UPDATE `users` SET `multi`=1, `coins`=`coins`-25, `beforeref`=`coins` WHERE (`id`='{$data->id}') ;");
+    mysql_query("INSERT INTO statistics(user_id,date,coins_deducted,fb_like) VALUES ({$data->id},now(),25,1)");
+    
 	mysql_query("UPDATE `users` SET `multi`=1, `coins`=`coins`-10, `beforeref`=`coins` WHERE (`lastip`='{$data->lastip}') ;");
+    $list_result = mysql_query("SELECT * FROM users WHERE lastip - '{$data->lastip}'");
+    while($row = mysql_fetch_assoc($list_result)) {
+        mysql_query("INSERT INTO statistics(user_id,date,coins_deducted,fb_like) VALUES ({$row->id},now(),25,1)");
+    }
 	if( $data->ref2 >= 1 ){
 	mysql_query("UPDATE `users` SET `refgive`=`refgive`-1000 WHERE `id`='{$data->id}'");
 	mysql_query("UPDATE `users` SET `coins`=`coins`-25, `beforeref`=`coins` WHERE `id`='{$data->ref2}'");
+    mysql_query("INSERT INTO statistics(user_id,date,coins_deducted,fb_like) VALUES ({$data->ref2},now(),25,1)");
 	mysql_query("INSERT INTO `refclaimed` (user, ref) VALUES('{$data->ref2}','{$data->id}')");
 	mysql_query("INSERT INTO `daily` (userid, ban) VALUES('{$data->id}', '1')");
 	mysql_query("INSERT INTO `daily2` (userid) VALUES('{$data->id}')");

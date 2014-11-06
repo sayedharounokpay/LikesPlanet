@@ -27,6 +27,7 @@ if(isset($_POST['admin_username'])) {
                     if($pass == md5($password)){
                         if($id == 1 || $id == 2){
                         $_SESSION['admin_state_login'] = TRUE;
+                        $_SESSION['admin_level'] = $id;
                         $result = TRUE;
                         echo 'success';
                         }

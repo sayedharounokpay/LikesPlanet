@@ -30,6 +30,7 @@ if ($page->isclicks == '1') {
 }
 
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,ads,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Instagram Photo Likes: {$site->id}','adsbcoins.php')");
 $msg = "<div class=\"msg_success\">Credits added with Success!</div>";
 
 }

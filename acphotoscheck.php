@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 
 $name = $_POST['details'];
@@ -22,7 +22,8 @@ mysql_query("INSERT INTO `photosdone2` (user_id, site_id, ok, wait, cpc, title, 
 mysql_query("UPDATE `photos2` SET `points`=`points`-'{$site11->cpc}', `likes`=`likes`+1   WHERE `id`='{$_POST['id']}'");
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$site11->cpc}'-1 WHERE `id`='{$_POST['uid']}'");
-
+$newpoints = $site11->cpc - 1;
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,ac_photo,log,page) VALUES ({$data->id},NOW(),$newpoints,1,'Added Coins to Photo','acphotoscheck.php')");
     echo 'yes' ;
 }
 

@@ -57,6 +57,7 @@ mysql_query("INSERT INTO `tweeted` (user_id, site_id) VALUES('{$data->id}','{$si
 if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 mysql_query("UPDATE `tweet` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,twitter_like,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Points Added To Twitter: {$site->id}','addtweet.php')");
 }
 $message = "Tweet Added with success!"; $message2 = 2;
 

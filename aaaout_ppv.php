@@ -105,7 +105,7 @@ mysql_query("UPDATE `ppv` SET `paid`='1', `points`='{$_REQUEST['points']}'  WHER
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$_REQUEST['points']}' WHERE ( `id`='{$cashoutdata->user}' ) ");
 mysql_query("UPDATE `users` SET `beforeref`=`coins` WHERE `id`='{$cashoutdata->user}'");
-
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,refund,log,page) VALUES ({$cashoutdata->user},NOW(),{$_REQUEST['points']},1,'Requested Refund From System','aaaout_ppv.php')");
 // Send another email to confirm support.
 // To email address
 $email = $usernamehere->email;

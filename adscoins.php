@@ -22,6 +22,7 @@ mysql_query("UPDATE `ads` SET `points`=`points`+'{$protect['coins']}'*40 WHERE `
 mysql_query("UPDATE `ads` SET `points`=`points`+'{$protect['coins']}'*20 WHERE `id`='{$id}'");
 }
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,inst_like,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Ads: {$site->id}','adscoins.php')");
 $msg = "<div class=\"msg_success\">Points added with Success!</div>";
 }}
 ?>

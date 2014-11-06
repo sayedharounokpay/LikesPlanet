@@ -17,6 +17,7 @@ else if(!is_numeric($_POST['coins'])){$message = "ERROR: Please enter an valid n
 else{
 mysql_query("UPDATE `fbsub` SET `points`=`points`-'{$protect['coins']}' WHERE `id`='{$id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Retrieved From Personal Facebook Page: {$page->title})");
 
 mysql_query("UPDATE `users` SET `beforeref`=`coins` WHERE `id`='{$data->id}'");
 $message = "Coins retracted with success!"; $message2 = 2;

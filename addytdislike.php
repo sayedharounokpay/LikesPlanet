@@ -64,6 +64,7 @@ if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 if ($site->id > 0) {
 mysql_query("UPDATE `ytdislike` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,yt_like,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Points Added To Youtube (Dislikes): {$site->id}','addytdislike.php')");
 }}
 $message = "Video Added with success!"; $message2 = 2;
 

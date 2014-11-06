@@ -14,6 +14,7 @@ if(isset($_POST['add'])){
 if($page->id > 1) {
 $page2 = mysql_fetch_object(mysql_query("SELECT * FROM `fbw` WHERE `id`='{$id}' AND `user`='{$data->id}'"));
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$page2->points}' WHERE `id`='{$page2->user}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log,page) VALUES ({$data->id},NOW(),{$page2->points},3,'Points Retrieved From Deleting Personal Facebook Page: {$page->title}','fbwdel.php')");
 mysql_query("UPDATE `fbw` SET `points`='0' WHERE `id`='{$id}'");
 mysql_query("DELETE FROM `fbw` WHERE `id`='{$id}'");
 mysql_query("DELETE FROM `wliked` WHERE `site_id`='{$id}'");

@@ -16,6 +16,7 @@ else if(!is_numeric($_POST['coins'])){$msg = "<div class=\"msg_error\">ERROR: Pl
 else{
 mysql_query("UPDATE `photos2` SET `points`=`points`-'{$protect['coins']}' WHERE `id`='{$id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,ac_photo,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Retrieved Coins from Photo ID: $id','acphotocoins2.php')");
 $msg = "<div class=\"msg_success\">Coins Retracted with success!</div>";
 }}
 ?>

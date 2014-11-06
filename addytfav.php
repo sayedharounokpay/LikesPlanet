@@ -45,6 +45,7 @@ if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 if ($site->id > -1) {
 mysql_query("UPDATE `ytfav` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,yt_like,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Points Added To Youtube (Favorites): {$site->id}','addytfav.php')");
 }
 $msg = "<div class=\"msg_success\">Video added with success!</div>
 <div class=\"msg_success\">Remember to ADD Coins to your Video!</div>

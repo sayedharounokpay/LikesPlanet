@@ -19,6 +19,7 @@ $usernamehere0 = mysql_query("SELECT * FROM `users` WHERE ( `id` = '{$cashoutdat
 $usernamehere = mysql_fetch_object($usernamehere0);
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$cashoutdata->cash}'*$coinsdollar WHERE ( `id`='{$cashoutdata->id}' ) ");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,refund,log,page) VALUES ({$cashoutdata->id},NOW(),{$cashoutdata->cash},1,'Requested Refund From Page','aaaout.php')");
 mysql_query("UPDATE `users` SET `beforeref`=`coins` WHERE ( `id`='{$cashoutdata->id}' ) ");
 
 // Send another email to confirm support.

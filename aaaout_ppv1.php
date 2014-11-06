@@ -33,6 +33,7 @@ if($usernamehere->id > 0) {
 mysql_query("UPDATE `ppv` SET `paid`='1', `points`='{$_REQUEST['points']}'  WHERE ( `id`='{$_REQUEST['paid']}' ) ");
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$_REQUEST['points']}' WHERE ( `id`='{$cashoutdata->user}' ) ");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,refund,log,page) VALUES ({$cashoutdata->user},NOW(),{$_REQUEST['points']},1,'Requested Refund From System','aaaout.php')");
 mysql_query("UPDATE `users` SET `beforeref`=`coins` WHERE `id`='{$cashoutdata->user}'");
 }
 

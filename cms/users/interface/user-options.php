@@ -1,16 +1,18 @@
 <h1>User Options</h1>
 
 <?php
-    $query = "SELECT login, admin_login, id FROM users WHERE id=?";
+echo 'admin_level: '.$_SESSION['admin_level'];
+    $query = "SELECT login,email, admin_login, id FROM users WHERE id=?";
     $user=array();
     if($stmt = $db->prepare($query)) {
         $stmt->bind_param("i",$_GET['id']);
         $stmt->execute();
-        $stmt->bind_result($login,$admin_login,$id);
+        $stmt->bind_result($login,$email,$admin_login,$id);
         $stmt->fetch();
        
         $user['login'] = $login;
         $user['admin_login'] = $admin_login;
+        $user['email'] = $email;
         $user['id'] = $id;
         
         $stmt->close();
@@ -31,6 +33,12 @@
         <label class=''>Username: </label>
         <input type='text' name='login' class='form-control' value='<?=$user['login']?>'/>
     </div>
+        <?php if($_SESSION['admin_level'] == 1):?>
+    <div class='form-group'>
+        <label class=''>Email: </label>
+        <input type='text' name='email' class='form-control'value='<?=$user['email']?>'/>
+    </div>
+        <?php endif;?>
     <div class='form-group' style=''>
         <label class=''>Available for access to manage: </label>
         <input type='checkbox' name='admin_login' class='' <?php if($user['admin_login'] == 1) echo 'checked';?>/>

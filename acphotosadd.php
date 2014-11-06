@@ -40,6 +40,7 @@ $site1 = mysql_fetch_object(mysql_query("SELECT * FROM `photos2` WHERE `details`
 if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 mysql_query("UPDATE `photos2` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site1->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,ac_photo,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Added Points to Photo','acphotosadd.php')");
 $msg = "<div class=\"msg_success\">Photo added with success!</div>
 <div class=\"msg_success\">Remember to ADD Coins to your Photos!</div>
 ";}

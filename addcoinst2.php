@@ -1,4 +1,4 @@
-<?
+<?php
 include('header.php');
 foreach($_GET as $key => $value) {
 	$protectie[$key] = filter($value);
@@ -16,6 +16,7 @@ $mesaj = "<div class=\"msg_error\"><div class=\"error\">ERROR: You don't have en
 }else{
 mysql_query("UPDATE `twitter` SET `points`=`points`-'{$_POST['coins']}' WHERE `user`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$_POST['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,twitter,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Retrieved Coins from Twitter','addcoinst2.php')");
 mysql_query("UPDATE `users` SET `beforeref`=`coins` WHERE `id`='{$data->id}'");
 $mesaj = "<div class=\"msg_success\"><div class=\"success\">Coins successfully retracted!</div></div>";
 }}

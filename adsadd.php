@@ -35,7 +35,7 @@ mysql_query("INSERT INTO `ads` (user_id, title, url, points) VALUES('{$data->id}
 }
 
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['cpc']}' WHERE `id`='{$data->id}'");
-
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,ads,log,page) VALUES ({$data->id},NOW(),{$_POST['cpc']},1,'Points Added To Text Ads','adsadd.php')");
 $message = "Text Ads added with Success!"; $message2 = 2;
 }
 

@@ -18,6 +18,8 @@ else if(!is_numeric($_POST['coins'])){$message = "Please enter an valid number!"
 else{
 mysql_query("UPDATE `fbsub` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Personal Facebook Page: {$page->title}','fbsubcoins.php')");
+
 $message = "Points added with success!"; $message2 = 2;
 }}
 ?>

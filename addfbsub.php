@@ -50,6 +50,7 @@ mysql_query("INSERT INTO `subliked` (user_id, site_id) VALUES('{$data->id}','{$s
 if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 mysql_query("UPDATE `fbsub` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Added Coins to Facebook (Subscribers) Site ID: {$site->id}','addfbsub.php')");
 }
 $message = "Profile Added with success!"; $message2 = 2;
 

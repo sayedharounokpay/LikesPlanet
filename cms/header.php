@@ -8,7 +8,7 @@ if(session_id() == '' || !isset($_SESSION)) {
 <html>
     <head>
         <?php
-$baselocation = "http://localhost/LikesPlanet/cms";
+$baselocation = "http://www.likesplanet.com/cms";
 
 if(isset($_SESSION['admin_state_login'])) {
     if($_SESSION['admin_state_login'] == true) {
@@ -57,7 +57,7 @@ else {
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="<?=$baselocation?>/logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

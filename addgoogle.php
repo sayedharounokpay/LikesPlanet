@@ -75,6 +75,7 @@ mysql_query("INSERT INTO `plused` (user_id, site_id) VALUES('{$data->id}','{$sit
 if ($_POST['addpoints'] <= $data->coins  and  $_POST['addpoints']>-1){
 mysql_query("UPDATE `google` SET `points`=`points`+'{$_POST['addpoints']}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['addpoints']}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,twitter,log,page) VALUES ({$data->id},NOW(),{$_POST['addpoints']},1,'Added Coins to Google Plus (Shares) | Page ID: {$site->id}','addgoogle.php')");
 }
 $message = "Website Added with success!"; $message2 = 2;
 
