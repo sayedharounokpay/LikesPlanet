@@ -37,7 +37,7 @@ class dbTable {
         $link = $this->full_url($_SERVER);
         //echo $link;
         
-        $new_link = (strpos($link,'&search=true')) ? $link : $link.'&search=true';
+        $new_link = (strpos($link,'&search=true') == TRUE) ? $link : $link.'&search=true';
         echo '<h4>Search</h4>';
         echo '<form class="form-horizontal" action="'.$new_link.'" style="display:block;margin-bottom:45px;" method="POST">';
         if(is_array($search)) {
@@ -93,7 +93,7 @@ class dbTable {
         }
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
         if(strlen($where) > 5 && ($blank < $wherecount)) {
-            $query = "SELECT * FROM ".$this->table." WHERE $where";
+            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT 500";
         }
        
       
@@ -105,7 +105,7 @@ class dbTable {
                 foreach($this->cols as $key=>$val) {
                     echo '<td>'.$row[$key].'</td>';
                 }
-                if($this->user_options){
+                if($this->user_options){ // Add custom code
                     $final_string = str_replace('.id.',$row['id'],$this->last_col);
                     echo '<td>'.$final_string.'</td>';
                 }
@@ -121,6 +121,7 @@ class dbTable {
     
     public function pagination(){
         global $db,$baselocation;
+        if(! isset($_GET['search'])) {
         $result = $db->query("SELECT COUNT(*) FROM ".$this->table);
         $row = $result->fetch_row();
         $count = $row[0];
@@ -147,6 +148,7 @@ class dbTable {
             }
         }
         echo '</ul>';
+        }
     }
     
     function url_origin($s, $use_forwarded_host=false)
