@@ -48,6 +48,7 @@ else {
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class=""><a href="<?=$baselocation?>/dashboard.php">Home</a></li>
+            <li class=""><a href="<?=$baselocation?>/stats/base.php?action=list">Statistics</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
