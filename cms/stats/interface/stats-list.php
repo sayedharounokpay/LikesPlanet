@@ -2,7 +2,6 @@
 global $baselocation;
 $table = "statistics";
 $cols = array('id'=>'Stat ID','user_id'=>'User','date'=>'Date','coins_gained'=>'Points Earned');
-if($_SESSION['admin_level'] == 1) $cols['email'] = "Email";
 $limit = 50;
 $pagenum = 1;
 if(isset($_GET['pagenum'])) {
