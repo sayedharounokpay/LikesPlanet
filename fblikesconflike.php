@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 foreach($_GET as $key => $value) {
 	$protect[$key] = filter($value);
@@ -108,7 +108,8 @@ $coinsadded = -1 + $site->cpc;
 mysql_query("INSERT INTO `liked` (user_id, site_id) VALUES('{$data->id}','{$site->id}')");
 mysql_query("UPDATE `facebook` SET `likes`=`likes`+'1', `lastreallikes`='{$likesnumnum}', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$coinsadded}', `hitstoday`=`hitstoday`+1, `likes`=`likes`+1, `likes_quality`=`likes_quality`+1  WHERE `id`='{$data->id}'");
-mysql_query("INSERT INTO statistics (user_id,date,points_gained,fb_like) VALUES ({$data->id},now(),{$coinsadded},1)");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Added From Facebook Like | Page ID: {$site->id}','fbconflike.php')");
+
 if($data->likes_quality <= 0) {
 mysql_query("UPDATE `users` SET `likes_quality`=`likes_quality`+1  WHERE (`id`='{$data->id}') ;");
 }
@@ -127,6 +128,7 @@ $refaddnoww = $data->refgive / $referralrate;
 if( $refaddnoww >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`-'{$data->refgive}' WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$refaddnoww}', `beforeref`=`coins`  WHERE `id`='{$data->ref2}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log,page) VALUES ({$data->ref2},NOW(),{$refaddnoww},1,'Coins Added From REFERENCE Facebook Like | Page ID: {$site->id} | User ID: {$data->id}','fbconflike.php')");
 }}
 
 mysql_query("UPDATE `stat` SET `stat`=`stat`+1 WHERE (`id`='3' or `id`='15')");
@@ -140,6 +142,7 @@ mysql_query("INSERT INTO `last_hits` (user_name, site_name, site_type, time) VAL
 else if ($likesnumnum+1 == $data->pagelikesnow) {
 $coinsadded = -1 + $site->cpc;
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$coinsadded}', `hitstoday`=`hitstoday`-1, `unlikes`=`unlikes`+'1'  WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Deducted From Bad Facebook Like | Page ID: {$site->id}','fbconflike.php')");
 mysql_query("INSERT INTO `liked` (user_id, site_id) VALUES('{$data->id}', '{$site->id}')");
 mysql_query("UPDATE `facebook` SET `jump`=`jump`+'1' WHERE `id`='{$site->id}'");
 echo '-1';
