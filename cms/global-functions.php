@@ -101,13 +101,21 @@ class dbTable {
         global $db;
         if( $result = $db->query($query) ) {
             while($row = $result->fetch_assoc()) {
+                // Dependencies Variables
+                $total=0;
+                
+                //Code
                 echo '<tr>';
                 foreach($this->cols as $key=>$val) {
                     echo '<td>'.$row[$key].'</td>';
                 }
-                if($this->user_options){ // Add custom code
+                if($this->user_options == 1){ // Add custom code
                     $final_string = str_replace('.id.',$row['id'],$this->last_col);
                     echo '<td>'.$final_string.'</td>';
+                }
+                else if($this->user_options == 2 && isset($_GET['search'])) {
+                    $total = $total + $row['coins_gained'];
+                    echo '<td>'.$total.'</td>';
                 }
                 
                 echo '</tr>';
