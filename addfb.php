@@ -1,6 +1,6 @@
 <?php
 $page_title = "LikesPlanet.com | Add Your Facebook Page to Get Likes";
-
+error_reporting(E_ALL);
 include('header.php');
 foreach($_POST as $key => $value) {
 	$protectie[$key] = filter($value);
@@ -56,7 +56,7 @@ function facebook_count($url){
  
 }
 
-$fb = facebook_count('https://www.facebook.com/dailydeveloper');
+$fb = facebook_count($_POST['url']);
 $likesnumnum = $fb[0]->like_count;
 
 if ($likesnumnum < 1) {
