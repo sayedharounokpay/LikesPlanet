@@ -1,6 +1,6 @@
 <?php
 $page_title = "LikesPlanet.com | Add Your Facebook Page to Get Likes";
-error_reporting(E_ALL);
+
 include('header.php');
 foreach($_POST as $key => $value) {
 	$protectie[$key] = filter($value);
@@ -41,23 +41,6 @@ $x1104 = explode('id"', $mystring0);
 $x11104 = explode('"', $x1104[1]);
 $x111044 = explode('"', $x11104[1]);
 $pageid = $x111044[0];
-
-function facebook_count($url){
- 
-    // Query in FQL
-    $fql  = "SELECT share_count, like_count, comment_count ";
-    $fql .= " FROM link_stat WHERE url = '$url'";
- 
-    $fqlURL = "https://api.facebook.com/method/fql.query?format=json&query=" . urlencode($fql);
- 
-    // Facebook Response is in JSON
-    $response = file_get_contents($fqlURL);
-    return json_decode($response);
- 
-}
-
-$fb = facebook_count($_POST['url']);
-$likesnumnum = $fb[0]->like_count;
 
 if ($likesnumnum < 1) {
 $url0   = 'http://shareyt.com/plugins/fb/getcount.php?url='. $_POST['url']; 
