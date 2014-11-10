@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 foreach($_GET as $key => $value) {
 	$protect[$key] = filter($value);
@@ -66,6 +66,9 @@ mysql_query("INSERT INTO `plused` (user_id, site_id) VALUES('{$data->id}','{$sit
 mysql_query("UPDATE `google` SET `likes`=`likes`+'1', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$coinsadded}', `hitstoday`=`hitstoday`+1, `likes`=`likes`+'1'  WHERE `id`='{$data->id}'");
 echo $coinsadded;
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,google,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Added From Google Like | Page ID: {$site->id}','googleconf.php')");
+
+
 
 if( $data->ref2 >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`+'{$site->cpc}'-1, `totalgive`=`totalgive`+'{$site->cpc}'-1 WHERE `id`='{$data->id}'");
@@ -73,6 +76,8 @@ $refaddnoww = $data->refgive / $referralrate;
 if( $refaddnoww >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`-'{$data->refgive}' WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$refaddnoww}', `beforeref`=`coins`  WHERE `id`='{$data->ref2}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,twitter,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Added From Refference To Google Like | Page ID: {$site->id}','googleconf.php')");
+
 }}
 
 mysql_query("UPDATE `stat` SET `stat`=`stat`+1 WHERE (`id`='23' or `id`='15')");
