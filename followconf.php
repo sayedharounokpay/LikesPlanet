@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 foreach($_GET as $key => $value) {
 	$protect[$key] = filter($value);
@@ -63,6 +63,8 @@ if ($fnum > $data->pagelikesnow && $fnummin < $data->pagelikesnow ) {
 $coinsadded = -1 + $site->cpc;
 mysql_query("INSERT INTO `followed` (user_id, site_id) VALUES('{$data->id}', '{$site->id}')");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$coinsadded}', `pagelikesnow`='1', `hitstoday`=`hitstoday`+1, `likes`=`likes`+'1' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,twitter,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Added From Refference To Stumble Follow | Page ID: {$site->id}','stumbleconf.php')");
+
 mysql_query("UPDATE `follow` SET `likes`=`likes`+'1', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 $errornum = $coinsadded;
 
@@ -80,6 +82,8 @@ $refaddnoww = $data->refgive / $referralrate;
 if( $refaddnoww >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`-'{$data->refgive}' WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$refaddnoww}', `beforeref`=`coins`  WHERE `id`='{$data->ref2}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,twitter,log,page) VALUES ({$data->ref2},NOW(),{$refaddnoww},1,'Coins Added From Refference To Stumble Follow | Page ID: {$site->id}','stumbleconf.php')");
+
 }}
 
 }}}

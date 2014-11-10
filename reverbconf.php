@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 
 if(!isset($data->login)){exit;}
@@ -25,6 +25,9 @@ mysql_query("INSERT INTO `reverbed` (user_id, site_id) VALUES('{$data->id}', '{$
 mysql_query("UPDATE `reverb` SET `points`=`points`-'{$site11->cpc}', `likes`=`likes`+1   WHERE `id`='{$_POST['id']}'");
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$site11->cpc}'-1, `hitstoday`=`hitstoday`+1, `likes`=`likes`+'1' WHERE `id`='{$data->id}'");
+$updatedcoins = $site11->cpc - 1;
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,reverb,log,page) VALUES ({$site11->cpc},NOW(),{$updatedcoins},1,'Coins Added From Reverb Like | Page ID: {$site->id}','stumbleconf.php')");
+
 
 if( $data->ref2 >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`+'{$site->cpc}'-1, `totalgive`=`totalgive`+'{$site->cpc}'-1 WHERE `id`='{$data->id}'");
@@ -32,6 +35,8 @@ $refaddnoww = $data->refgive / $referralrate;
 if( $refaddnoww >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`-'{$data->refgive}' WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$refaddnoww}', `beforeref`=`coins`  WHERE `id`='{$data->ref2}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,reverb,log,page) VALUES ({$data->ref2},NOW(),{$refaddnoww},1,'Coins Added From Refference To Reverb Like | Page ID: {$site->id}','stumbleconf.php')");
+
 }}
 
 $mmillesecc = microtime(true);

@@ -69,7 +69,7 @@ $coinsadded = -1 + $site->cpc;
 mysql_query("INSERT INTO `ytliked` (user_id, site_id) VALUES('{$data->id}','{$site->id}')");
 mysql_query("UPDATE `ytlike` SET `likes`=`likes`+'1', `lastreallikes`='{$likesnumnum}', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$coinsadded}', `hitstoday`=`hitstoday`+1, `likes`=`likes`+'1'  WHERE `id`='{$data->id}'");
-mysql_query("INSERT INTO statistics(user_id,date,coins_gained,yt_like) VALUES ({$data->id},now(),{$coinsadded},1)");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,yt_like,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'Coins Added From Youtube Like | Page ID: {$site->id}','ytlikeconf.php')");
 
 echo $coinsadded;
 
@@ -85,7 +85,7 @@ $refaddnoww = $data->refgive / $referralrate;
 if( $refaddnoww >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`-'{$data->refgive}' WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$refaddnoww}', `beforeref`=`coins`  WHERE `id`='{$data->ref2}'");
-mysql_query("INSERT INTO statistics(user_id,date,coins_gained,fb_like) VALUES ({$data->ref2},now(),{$refaddnoww},1)");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,yt_like,log,page) VALUES ({$data->ref2},NOW(),{$refaddnoww},1,'Coins Added From Youtube Like | Page ID: {$site->id}','ytlikeconf.php')");
 
 }}
 

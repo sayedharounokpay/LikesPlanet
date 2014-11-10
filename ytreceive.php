@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 
 if(!isset($data->login)){exit;}
@@ -9,6 +9,7 @@ $x = explode('---', $_POST['data']);
 $site = mysql_fetch_object(mysql_query("SELECT * FROM `youtube` WHERE (`id`='{$x[0]}' AND `user`='{$x[2]}')  AND `id` NOT IN (SELECT `site_id` FROM `played` WHERE `user_id`='{$data->id}')"));
 
 mysql_query("UPDATE `users` SET `coins`=`coins`-1 WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,yt_like,log,page) VALUES ({$data->id},NOW(),1,1,'Coins Deducted From Bad Youtube View | Page ID: {$site->id}','ytreceive.php')");
 
 if($site->cpc > 0){
 if($site->points > $site->cpc){
@@ -32,6 +33,8 @@ mysql_query("INSERT INTO `notebyemail` (username, title, msg, link, email) VALUE
 mysql_query("INSERT INTO `played` (user_id, site_id) VALUES('{$data->id}','{$site->id}')");
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$site->cpc}' WHERE `id`='{$data->id}'");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,yt_like,log,page) VALUES ({$data->id},NOW(),{$site->cpc},1,'Coins Added From Youtube View | Page ID: {$site->id}','ytreceive.php')");
+
 mysql_query("UPDATE `youtube` SET `likes`=`likes`+'1', `points`=`points`-'{$site->cpc}' WHERE `id`='{$site->id}'");
 
 }}}
