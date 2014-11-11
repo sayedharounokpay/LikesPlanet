@@ -12,10 +12,17 @@ function facebook_count($url){
     return json_decode($response);
  
 }
-$fbxzxc123 = facebook_count('https://www.facebook.com/dailydeveloper');
-var_dump($fbxzxc123);
-echo 'test: ';
-echo $likesnumnum;
+ 
+$fb = facebook_count('https://www.facebook.com/daily.developer.online2');
+ 
+// facebook share count
+echo $fb[0]->share_count;
+ 
+// facebook like count
+echo $fb[0]->like_count;
+ 
+// facebook comment count
+echo $fb[0]->comment_count;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
