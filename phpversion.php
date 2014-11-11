@@ -1,31 +1,10 @@
-<?php
-function facebook_count($url){
- 
-    // Query in FQL
-    $fql  = "SELECT share_count, like_count, comment_count ";
-    $fql .= " FROM link_stat WHERE url = '$url'";
- 
-    $fqlURL = "https://api.facebook.com/method/fql.query?format=json&query=" . urlencode($fql);
- 
-    // Facebook Response is in JSON
-    $response = file_get_contents($fqlURL);
-    return json_decode($response);
- 
-}
- 
-$fb = facebook_count('https://www.facebook.com/daily.developer.online2');
- 
-// facebook share count
-echo $fb[0]->share_count;
- 
-// facebook like count
-echo $fb[0]->like_count;
- 
-// facebook comment count
-echo $fb[0]->comment_count;
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<?php 
+$ch = curl_init("http://graph.facebook.com/daily.developer.online2");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+$raw = curl_exec($ch);
+curl_close($ch);
 
+$data = json_decode($raw);
+var_dump($data);
+echo $data->likes . " people like Coca-Cola";
+?>

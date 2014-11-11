@@ -53,18 +53,17 @@ $likesnumnum = file_get_contents($url0);
 
 function facebook_count($url){
  
-    // Query in FQL
-    $fql  = "SELECT share_count, like_count, comment_count ";
-    $fql .= " FROM link_stat WHERE url = '$url'";
- 
-    $fqlURL = "https://api.facebook.com/method/fql.query?format=json&query=" . urlencode($fql);
- 
-    // Facebook Response is in JSON
-    $response = file_get_contents($fqlURL);
-    return json_decode($response);
+    $ch = curl_init("http://graph.facebook.com/daily.developer.online2");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $raw = curl_exec($ch);
+    curl_close($ch);
+
+    $data = json_decode($raw);
+    return $data;
  
 }
-
+$fb_data = facebook_count($_POST['url']);
+$likesnumnum = $fb_data->likes;
 $verificare = 0;
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `facebook`='{$_POST['url']}'");
 $verificareA = mysql_num_rows($verificare1);
