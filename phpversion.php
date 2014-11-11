@@ -13,7 +13,7 @@ function facebook_count($url){
  
 }
 $fbxzxc123 = facebook_count('https://www.facebook.com/dailydeveloper');
-$likesnumnum = $fbxzxc123[0]->like_count;
+var_dump($fbxzxc123);
 echo 'test: ';
 echo $likesnumnum;
 /* 
