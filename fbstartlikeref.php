@@ -41,7 +41,7 @@ if($data->likes_quality < -99) {
 	mysql_query("INSERT INTO `daily` (userid, ban) VALUES('{$data->id}', '1')");
 	mysql_query("INSERT INTO `daily2` (userid) VALUES('{$data->id}')");
 	}
-echo '-99';
+//echo '-99';
 session_destroy();
 exit;
 }
@@ -70,7 +70,7 @@ $name0 = $mobilelink;
 $mobilelink = str_replace('www.', '', $mobilelink );
 $mobilelink = str_replace('facebook.', 'm.facebook.', $mobilelink );
 $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
-echo $mobilelink;
+
 //if(preg_match("/\bpages\b/i", $site->facebook)){
 //$x110 = explode('/', $site->facebook);
 //$name0 = $x110[5];}
@@ -114,25 +114,27 @@ $x111033e = explode('}', $x111033[0]);
 //$x111033e[0] = str_replace(',', '', $x111033e[0]);
 //$likesnumnum = $x111033e[0];
 //}
-echo 'Finished Check 1 Likesnum: '.$likesnumnum;
+
 
 if ($likesnumnum < 1) {
 $url0   = 'http://shareyt.com/plugins/fb/getcount.php?url='. $site->facebook; 
 $likesnumnum = file_get_contents($url0);
-echo 'Finished Check 2 Likesnum: '.$likesnumnum;
+
 }
 if ($likesnumnum < 1) {
 $url0   = 'http://likeflow.net/plugins/fb/getcount.php?url='. $site->facebook; 
 $likesnumnum = file_get_contents($url0);
-echo 'Finished Check 3 Likesnum: '.$likesnumnum;
+
 }
 
 
 if ($likesnumnum < 1) {$likesnumnum = 32;}
-echo 'Finished Check 4 Likesnum: '.$likesnumnum;
+
 
 mysql_query("UPDATE `users` SET `pagelikesnow`='{$likesnumnum}'  WHERE `id`='{$data->id}'");
-echo '<br>Mobile Link: '.$mobilelink;
+
+header('Location: '.$mobilelink);
+
 if ($mobilelink != "") {
 $reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
 echo $reloggURL; exit;
