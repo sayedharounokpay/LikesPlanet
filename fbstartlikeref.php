@@ -139,7 +139,7 @@ if ($mobilelink != "") {
 <html>
     <head>
         <script>
-            alert('functionality problems. We are working to fix them now');
+            document.location.href="<?php echo $mobilelink;?>";
             </script>
     </head>
 </html>
