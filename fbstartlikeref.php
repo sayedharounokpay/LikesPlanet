@@ -97,7 +97,10 @@ $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
 $likesnumnum = 0;
 
 $url0   = 'https://graph.facebook.com/'. urlencode($graphlink); 
-$mystring0 = file_get_contents($url0);
+$opts = array('https' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
+$context = stream_context_create($opts);
+
+$mystring0 = file_get_contents($url0, FALSE, $context);
 $x1103 = explode('likes"', $mystring0);
 $x11103 = explode(':', $x1103[1]);
 $x111033 = explode(',', $x11103[1]);
