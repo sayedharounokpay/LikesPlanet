@@ -133,7 +133,7 @@ if ($likesnumnum < 1) {$likesnumnum = 32;}
 
 mysql_query("UPDATE `users` SET `pagelikesnow`='{$likesnumnum}'  WHERE `id`='{$data->id}'");
 
-header('Location: '.$mobilelink);
+echo '<script>document.location.href="'.$mobilelink.'";</script>'
 
 if ($mobilelink != "") {
 $reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
