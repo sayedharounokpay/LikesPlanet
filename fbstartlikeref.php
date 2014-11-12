@@ -59,11 +59,11 @@ $mobilelink = $site->facebook;
 }
 echo $mobilelink;
 $graphlink = "";
-if(strpos($mobilelink,'http://www.facebook.com/') == TRUE) {
+if(strpos($mobilelink,'http://www.facebook.com/') !== false) {
     echo 'Found http://facebook';
     $graphlink = str_replace('http://www.facebook.com/', '', $mobilelink);
 }
-if(strpos($mobilelink,'https://www.facebook.com/') == TRUE) {
+if(strpos($mobilelink,'https://www.facebook.com/') !== false) {
     echo 'Found https://facebook';
     $graphlink = str_replace('https://www.facebook.com/', '', $mobilelink);
 }
