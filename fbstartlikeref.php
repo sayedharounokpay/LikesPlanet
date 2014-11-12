@@ -1,6 +1,5 @@
  <?php
 ini_set ('allow_url_fopen', '1');
-include('header.php');
 foreach($_POST as $key => $value) {
 	$protect[$key] = filter($value);
 }
