@@ -96,25 +96,15 @@ $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
 
 $likesnumnum = 0;
 
-function curl_get_contents($url)
-{
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
-}
+
 
 $url0   = 'https://graph.facebook.com/'. urlencode($graphlink); 
 $opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
 $context = stream_context_create($opts);
 
-//$mystring0 = file_get_contents($url0, FALSE, $context);
+$mystring0 = file_get_contents($url0, FALSE, $context);
 
-$mystring0 = curl_get_contents($url0);
-
+var_dump($mystring0);
 $x1103 = explode('likes"', $mystring0);
 $x11103 = explode(':', $x1103[1]);
 $x111033 = explode(',', $x11103[1]);
