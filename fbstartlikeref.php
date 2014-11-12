@@ -133,11 +133,11 @@ if ($likesnumnum < 1) {$likesnumnum = 32;}
 
 mysql_query("UPDATE `users` SET `pagelikesnow`='{$likesnumnum}'  WHERE `id`='{$data->id}'");
 
-echo '<script>document.location.href="'.$mobilelink.'";</script>';
-
+echo '<script cfasync="false" type="text/javascript" >document.location.href="'.$mobilelink.'";</script>';
+exit;
 if ($mobilelink != "") {
-$reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
-echo $reloggURL; exit;
+//$reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
+//echo $reloggURL; exit;
 }
 
 ?>
