@@ -74,14 +74,20 @@ class dbTable {
             if($_GET['search'] == 'true') {
                 foreach($_POST as $key => $val){
                     $searchparam = "";
+                    $greaterrange =0;
+                    $lesserrange  =0;
+                    if(strpos($key,'_greaterrange')){
+                        $key = str_replace('_greaterrange', '', $key);
+                        $greaterrange++;
+                    }                        
                     if(strlen($val) < 1) {
                         $searchparam = '!';
                         $blank++;
                     }
                     if(is_numeric($val)) {
-                        if(strpos($key,'_greaterrange')){
-                            $key = str_replace('_greaterrange', '', $key);
-                            $where .= " $key >= $val";
+                        
+                         if($greaterrange == 1){   
+                            $where .= " $key >= $val ";
                         }
                         else {
                         $where .= " $key $searchparam= $val ";
