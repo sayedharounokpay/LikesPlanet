@@ -63,7 +63,7 @@ $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
 $mobilelinksO = explode('/', $mobilelinksO[1]);
 $mobilelink = "http://facebook.com/" . $mobilelinksO[1];
 }
-
+echo $mobilelink;
 $name0 = $mobilelink;
 echo $name0;
 $mobilelink = str_replace('www.', '', $mobilelink );
