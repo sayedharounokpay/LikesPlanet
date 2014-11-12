@@ -52,23 +52,12 @@ $xdata = explode("---", $get["sitename1"]);
 
 $site = mysql_fetch_object(mysql_query("SELECT * FROM `facebook` WHERE (`id`='{$xdata[0]}' AND `user`='{$xdata[1]}') "));
 
-if (strpos($site->facebook, '?') !== false) {
+if (strpos($site->facebook, '?') != false) {
 $mobilelinksO = explode('?', $site->facebook);
 $mobilelink = $mobilelinksO[0];
 } else {
 $mobilelink = $site->facebook;
 }
-echo $mobilelink;
-$graphlink = "";
-if(strpos($mobilelink,'http://www.facebook.com/') !== false) {
-    echo 'Found http://facebook';
-    $graphlink = str_replace('http://www.facebook.com/', '', $mobilelink);
-}
-if(strpos($mobilelink,'https://www.facebook.com/') !== false) {
-    echo 'Found https://facebook';
-    $graphlink = str_replace('https://www.facebook.com/', '', $mobilelink);
-}
-echo 'Graph Links: '.$graphlink;
 
 if (strpos($mobilelink, 'facebook.com/pages/') != false) {
 $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
@@ -143,5 +132,5 @@ if ($mobilelink != "") {
 $reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
 echo $reloggURL; exit;
 }
-
+echo 'Finished Script';
 ?>
