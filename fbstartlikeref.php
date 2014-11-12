@@ -65,11 +65,9 @@ $mobilelink = "http://facebook.com/" . $mobilelinksO[1];
 }
 
 $name0 = $mobilelink;
-echo $name0;
 $mobilelink = str_replace('www.', '', $mobilelink );
 $mobilelink = str_replace('facebook.', 'm.facebook.', $mobilelink );
 $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
-echo $mobilelink;
 //if(preg_match("/\bpages\b/i", $site->facebook)){
 //$x110 = explode('/', $site->facebook);
 //$name0 = $x110[5];}
@@ -87,6 +85,7 @@ echo $mobilelink;
 $likesnumnum = 0;
 
 $url0   = 'https://graph.facebook.com/'. urlencode($name0); 
+echo $url0;
 $mystring0 = file_get_contents($url0);
 $x1103 = explode('likes"', $mystring0);
 $x11103 = explode(':', $x1103[1]);
