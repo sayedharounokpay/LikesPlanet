@@ -62,7 +62,7 @@ if (strpos($mobilelink, 'facebook.com/pages/') != false) {
 $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
 $mobilelinksO = explode('/', $mobilelinksO[1]);
 $mobilelink = "http://facebook.com/" . $mobilelinksO[1];
-echo $mobilelinksO[1];
+
 }
 
 $name0 = $mobilelink;
