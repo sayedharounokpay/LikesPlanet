@@ -88,9 +88,9 @@ $likesnumnum = 0;
 
 
 
-$url0   = 'https://graph.facebook.com/'. urlencode($graphlink); 
-$opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
-$context = stream_context_create($opts);
+//$url0   = 'https://graph.facebook.com/'. urlencode($graphlink); 
+//$opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
+//$context = stream_context_create($opts);
 
 /*$mystring0 = file_get_contents($url0, FALSE, $context);
 
