@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 foreach($_POST as $key => $value) {
 	$protect[$key] = filter($value);
@@ -7,7 +7,7 @@ foreach($_GET as $key => $value) {
 	$get[$key] = filter($value);
 }
 
-error_reporting(0);
+error_reporting(E_ALL);
 
 if(!isset($data->login)){exit;}
 
