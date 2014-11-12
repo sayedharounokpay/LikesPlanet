@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        
-    </head>
-    <body>
-        <?php
+ <?php
 ini_set ('allow_url_fopen', '1');
-include('config.php');
+include('header.php');
 foreach($_POST as $key => $value) {
 	$protect[$key] = filter($value);
 }
@@ -148,5 +142,3 @@ if ($mobilelink != "") {
 
 ?>
 
-    </body>
-</html>
