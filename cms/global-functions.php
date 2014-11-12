@@ -129,7 +129,7 @@ class dbTable {
             }
         }
         else {
-            echo 'Invalid query';
+            echo '<br>Invalid query: '.$query;
         }
         echo '</tbody></table>';
     }
