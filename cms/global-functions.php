@@ -100,6 +100,7 @@ class dbTable {
                         $where .= "AND";
                     }
                     $wheres++;
+                    
                 }
             }
         }
@@ -107,7 +108,7 @@ class dbTable {
         if(strlen($where) > 5 && ($blank < $wherecount)) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT 500";
         }
-       
+       echo $query;
       
         echo '<tbody>';
         global $db;
