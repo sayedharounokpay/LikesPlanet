@@ -132,7 +132,7 @@ if ($likesnumnum < 1) {$likesnumnum = 32;}
 echo 'Finished Check 4 Likesnum: '.$likesnumnum;
 
 mysql_query("UPDATE `users` SET `pagelikesnow`='{$likesnumnum}'  WHERE `id`='{$data->id}'");
-
+echo '<br>Mobile Link: '.$mobilelink;
 if ($mobilelink != "") {
 $reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
 echo $reloggURL; exit;
