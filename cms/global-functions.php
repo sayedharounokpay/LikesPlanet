@@ -102,6 +102,7 @@ class dbTable {
                         $where .= " $key $searchparam= '$val' ";
                     }
                     if(count($_POST) > 1 && $wheres < count($_POST) ) {
+                        if(! $is_blank);
                         $where .= "AND";
                     }
                     $wheres++;
