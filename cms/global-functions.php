@@ -79,7 +79,13 @@ class dbTable {
                         $blank++;
                     }
                     if(is_numeric($val)) {
+                        if(strpos($key,'_greaterrange')){
+                            $key = str_replace('_greaterrange', '', $key);
+                            $where .= " $key >= $val";
+                        }
+                        else {
                         $where .= " $key $searchparam= $val ";
+                        }
                     }
                     else {
                         $where .= " $key $searchparam= '$val' ";

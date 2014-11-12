@@ -8,6 +8,6 @@ if(isset($_GET['pagenum'])) {
     $pagenum = $_GET['pagenum'];
 }
 $usertable = new dbTable($table, $cols, $limit, $pagenum, $user_options = 2);
-$usertable->display_search(array('user_id'=>'User ID','date'=>'Date'));
+$usertable->display_search(array('user_id'=>'User ID','date'=>'Date','coins_gained_greaterrange'=>'Points Gained >=','coins_deducted_greaterrange' => 'Points Deducted >='));
 $usertable->display_table();
 $usertable->pagination();
