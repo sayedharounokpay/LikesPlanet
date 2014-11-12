@@ -1,14 +1,5 @@
 <?php
-function curl_get_contents($url)
-{
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  $data = curl_exec($ch);
-  curl_close($ch);
-  return $data;
-}
+ini_set ('allow_url_fopen', '1');
 $url0   = 'https://graph.facebook.com/kingvamp2014'; 
 $opts = array('http' => array('header' => "User-Agent:MyAgent/1.0\r\n"));
 $context = stream_context_create($opts);
