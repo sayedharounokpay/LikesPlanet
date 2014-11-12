@@ -58,6 +58,17 @@ $mobilelink = $mobilelinksO[0];
 $mobilelink = $site->facebook;
 }
 echo $mobilelink;
+$graphlink = "";
+if(strpos($mobilelink,'http://facebook.com') == TRUE) {
+    $graphlink = explode('http://facebook.com/',$mobilelink);
+}
+if(strpos($mobilelink,'https://facebook.com') == TRUE) {
+    $graphlink = explode('https://facebook.com/',$mobilelink);
+}
+if(strpos($graphlink,'?') == TRUE) {
+    $graphlink = explode('?',$graphlink);
+}
+
 if (strpos($mobilelink, 'facebook.com/pages/') != false) {
 $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
 $mobilelinksO = explode('/', $mobilelinksO[1]);
@@ -85,7 +96,7 @@ $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
 
 $likesnumnum = 0;
 
-$url0   = 'https://graph.facebook.com/'. urlencode($name0); 
+$url0   = 'https://graph.facebook.com/'. urlencode($graphlink); 
 $mystring0 = file_get_contents($url0);
 $x1103 = explode('likes"', $mystring0);
 $x11103 = explode(':', $x1103[1]);
