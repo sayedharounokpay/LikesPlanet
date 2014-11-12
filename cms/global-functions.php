@@ -76,6 +76,7 @@ class dbTable {
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
+                    $is_blank=FALSE;
                     if(strpos($key,'_greaterrange')){
                         $key = str_replace('_greaterrange', '', $key);
                         $greaterrange++;
@@ -83,6 +84,7 @@ class dbTable {
                     if(strlen($val) < 1) {
                         $searchparam = '!';
                         $blank++;
+                        $is_blank = TRUE;
                     }
                     if(is_numeric($val)) {
                         
@@ -96,6 +98,7 @@ class dbTable {
                         }
                     }
                     else {
+                        if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
                     if(count($_POST) > 1 && $wheres < count($_POST) ) {
