@@ -65,7 +65,7 @@ $mobilelink = "http://facebook.com/" . $mobilelinksO[1];
 }
 
 $name0 = $mobilelink;
-
+echo $name0;
 $mobilelink = str_replace('www.', '', $mobilelink );
 $mobilelink = str_replace('facebook.', 'm.facebook.', $mobilelink );
 $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
