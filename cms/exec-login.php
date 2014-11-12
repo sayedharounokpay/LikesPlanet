@@ -47,10 +47,17 @@ else
 {
     $err = "user";
 }
-
+?>
+<html>
+    
+    <head>
+        <?php
 if($result) {
     echo '<script>document.location.href="dashboard.php"</script>';
 }
 else {
-    echo '<script>document.location.href="login.php?err='.$err.'"</script>';
+    echo '<script>document.location.href="login.php?err='.$err.'"</script>';  
 }
+?>
+    </head>
+</html>
