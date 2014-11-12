@@ -1,4 +1,10 @@
-<?php
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <?php
 ini_set ('allow_url_fopen', '1');
 include('config.php');
 foreach($_POST as $key => $value) {
@@ -141,3 +147,6 @@ if ($mobilelink != "") {
 }
 
 ?>
+
+    </body>
+</html>
