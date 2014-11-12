@@ -101,7 +101,7 @@ $x111033 = explode(',', $x11103[1]);
 $x111033e = explode('}', $x111033[0]);
  * 
  */
-$likesnumnum = 1;
+$likesnumnum = 0;
 
 //if ($likesnumnum < -1) {
 //$sitemobile = explode('book', $site->facebook);
