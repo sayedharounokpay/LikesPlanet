@@ -65,11 +65,12 @@ $mobilelinksO = explode('/', $mobilelinksO[1]);
 $mobilelink = "http://facebook.com/" . $mobilelinksO[1];
 
 }
-echo $mobilelink;
+
 $name0 = $mobilelink;
 $mobilelink = str_replace('www.', '', $mobilelink );
 $mobilelink = str_replace('facebook.', 'm.facebook.', $mobilelink );
 $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
+echo $mobilelink;
 //if(preg_match("/\bpages\b/i", $site->facebook)){
 //$x110 = explode('/', $site->facebook);
 //$name0 = $x110[5];}
@@ -132,5 +133,5 @@ if ($mobilelink != "") {
 $reloggURL = "<script>document.location.href='" . $mobilelink . "'</script>";
 echo $reloggURL; exit;
 }
-echo 'Finished Script';
+
 ?>
