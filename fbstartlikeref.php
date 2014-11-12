@@ -57,7 +57,7 @@ $mobilelink = $mobilelinksO[0];
 } else {
 $mobilelink = $site->facebook;
 }
-
+echo $mobilelink;
 if (strpos($mobilelink, 'facebook.com/pages/') != false) {
 $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
 $mobilelinksO = explode('/', $mobilelinksO[1]);
