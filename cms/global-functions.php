@@ -86,11 +86,13 @@ class dbTable {
                     }
                     if(is_numeric($val)) {
                         
-                         if($greaterrange == 1){   
-                            $where .= " $key >= $val ";
+                         if($greaterrange == 1){ 
+                             if(strlen($val) > 0) {
+                                $where .= " $key >= $val ";
+                             }
                         }
                         else {
-                        $where .= " $key $searchparam= $val ";
+                        $where .= " $key >= 0 ";
                         }
                     }
                     else {
