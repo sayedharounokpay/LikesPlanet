@@ -59,15 +59,15 @@ $mobilelink = $site->facebook;
 }
 echo $mobilelink;
 $graphlink = "";
-if(strpos($mobilelink,'http://facebook.com') == TRUE) {
-    $graphlink = explode('http://facebook.com/',$mobilelink);
+if(strpos($mobilelink,'http://facebook.com/') == TRUE) {
+    echo 'Found http://facebook';
+    $graphlink = str_replace('http://facebook.com/', '', $mobilelink);
 }
-if(strpos($mobilelink,'https://facebook.com') == TRUE) {
-    $graphlink = explode('https://facebook.com/',$mobilelink);
+if(strpos($mobilelink,'https://facebook.com/') == TRUE) {
+    echo 'Found https://facebook';
+    $graphlink = str_replace('https://facebook.com/', '', $mobilelink);
 }
-if(strpos($graphlink[0],'?') == TRUE) {
-    $graphlink[0] = explode('?',$graphlink);
-}
+echo $graphlink;
 
 if (strpos($mobilelink, 'facebook.com/pages/') != false) {
 $mobilelinksO = explode('facebook.com/pages/', $mobilelink);
