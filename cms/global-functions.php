@@ -68,12 +68,13 @@ class dbTable {
         $where ="";
         $blank = 0;
         $wherecount = count($_POST);
+        echo 'Post count:'.$wherecount;
         if(isset($_GET['search'])) {
             $where = "";
             $wheres = 1;
             if($_GET['search'] == 'true') {
                 foreach($_POST as $key => $val){
-                    echo $key.':'.$val.': strlen('.strlen($val).')<br/>';
+                    
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
