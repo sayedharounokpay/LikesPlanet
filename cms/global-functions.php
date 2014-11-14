@@ -94,7 +94,7 @@ class dbTable {
                              }
                         }
                         else {
-                        $where .= " $key >= 0 ";
+                        
                         }
                     }
                     else {
