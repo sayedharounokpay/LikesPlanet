@@ -73,6 +73,7 @@ class dbTable {
             $wheres = 1;
             if($_GET['search'] == 'true') {
                 foreach($_POST as $key => $val){
+                    echo $key.':'.$val.'<br/>';
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
@@ -114,7 +115,7 @@ class dbTable {
         if(strlen($where) > 5 && ($blank < $wherecount)) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT 500";
         }
-       echo $query;
+       //echo $query;
       
         echo '<tbody>';
         global $db;
