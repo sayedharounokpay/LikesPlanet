@@ -130,14 +130,16 @@ class dbTable {
             }
             $_SESSION['searchparam'][$key] = $val;
         }
-            if($_GET['search'] == 'true') {
+            
+        }
+        
+        if($_GET['search'] == 'true' || $_GET['searchthrough']) {
                 $returnarr = $this->build_search($_SESSION['searchparam']);
                 $where = $returnarr['where'];
                 $limit = $returnarr['limit'];
                 $offset = $returnarr['offset'];
             }
-        }
-        var_dump($returnarr);
+        var_dump($_SESSION['searchparam']);
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
         if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
@@ -227,6 +229,7 @@ class dbTable {
            
             if($i > 0 && $i <=$pages) {
                 $new_link = str_replace('pagenum='.$pagenum, 'pagenum='.$i, $actual_link);
+                $new_link = str_replace('search=true','searchthrough=true',$new_link);
                 if($new_link == $actual_link) {
                     $new_link = $actual_link.'&pagenum='.$i;
                 }
