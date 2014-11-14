@@ -134,7 +134,7 @@ class dbTable {
         }
         
         if($_GET['search'] == 'true' || $_GET['searchthrough']) {
-                $returnarr = $this->build_search($_SESSION['searchparam']);
+                $returnarr = $this->build_search($_SESSION['searchparam'],$this->pagenum);
                 $where = $returnarr['where'];
                 $limit = $returnarr['limit'];
                 $offset = $returnarr['offset'];
