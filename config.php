@@ -5,7 +5,7 @@ error_reporting(0);
   if(!(@mysql_connect("$host","$user","$pass") && @mysql_select_db("$tablename"))) {
 ?>
 MySQL Error
-<?
+<?php
     exit;
   }
   include("functions.php");
