@@ -62,7 +62,7 @@ class dbTable {
         $where = "";
         
         if($page > 0) {
-            $offset = $limit*($page-1);
+            $offset = $limit*$page;
             $limit = $offset+$limit;
         }
         foreach($array as $key => $val){
@@ -179,7 +179,7 @@ class dbTable {
     
     public function pagination(){
         global $db,$baselocation;
-        if(! isset($_GET['search'])) {
+        if(! isset($_GET['search']) && ! isset($_GET['searchthrough'])) {
         $result = $db->query("SELECT COUNT(*) FROM ".$this->table);
         $row = $result->fetch_row();
         $count = $row[0];
@@ -208,15 +208,15 @@ class dbTable {
         echo '</ul>';
         }
         
-        else if(isset($_GET['search'])) {
+        else if(isset($_GET['search']) || isset($_GET['searchthrough'])) {
             $returnarr = $this->build_search($_SESSION['searchparam']);
             $where = $returnarr['where'];
             $result = $db->query("SELECT COUNT(*) FROM {$this->table} WHERE $where");
             $row = $result->fetch_row();
             $count = $row[0];
-            echo 'total count: ' .$count;
+            
             $pages = round($count/$this->limit);
-            echo '<br>total pages: '.$pages;
+           
             $action = "";
         if(isset($_GET['action'])){
             $action=$_GET['action'];
