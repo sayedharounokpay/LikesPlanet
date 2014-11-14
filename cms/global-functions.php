@@ -95,7 +95,7 @@ class dbTable {
                              }
                         }
                         else {
-                        
+                            $where .= " $key = $val ";
                         }
                     }
                     else {
