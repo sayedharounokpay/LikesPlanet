@@ -58,7 +58,7 @@ class dbTable {
     
     private function build_search($array,$page=0) {
         $offset=0;
-        $limit=500;
+        $limit=$this->limit;
         $where = "";
         
         if($page > 0) {
