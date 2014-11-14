@@ -118,7 +118,7 @@ class dbTable {
             }
         }
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
-        if(strlen($where) > 5 && ($blank < $wherecount)) {
+        if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT 500";
         }
        //echo $query;
