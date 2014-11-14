@@ -137,6 +137,7 @@ class dbTable {
                 $offset = $returnarr['offset'];
             }
         }
+        var_dump($returnarr);
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
         if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
