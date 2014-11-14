@@ -214,9 +214,9 @@ class dbTable {
             $result = $db->query("SELECT COUNT(*) FROM {$this->table} WHERE $where");
             $row = $result->fetch_row();
             $count = $row[0];
-        
+            echo 'total count: ' .$count;
             $pages = round($count/$this->limit);
-            
+            echo '<br>total pages: '.$pages;
             $action = "";
         if(isset($_GET['action'])){
             $action=$_GET['action'];
