@@ -73,7 +73,7 @@ class dbTable {
             $wheres = 1;
             if($_GET['search'] == 'true') {
                 foreach($_POST as $key => $val){
-                    echo $key.':'.$val.'<br/>';
+                    echo $key.':'.$val.': strlen('.strlen($val).')<br/>';
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
@@ -82,7 +82,7 @@ class dbTable {
                         $key = str_replace('_greaterrange', '', $key);
                         $greaterrange++;
                     }                        
-                    if(strlen($val) < 1) {
+                    if(strlen($val) < 1 && !is_numeric($val)) {
                         $searchparam = '!';
                         $blank++;
                         $is_blank = TRUE;
