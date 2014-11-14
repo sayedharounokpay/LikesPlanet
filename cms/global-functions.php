@@ -86,7 +86,7 @@ class dbTable {
                         $blank++;
                         $is_blank = TRUE;
                     }
-                    if(is_numeric($val)) {
+                    if(is_numeric($val) && !$is_blank) {
                         
                          if($greaterrange == 1){ 
                              if(strlen($val) > 0) {
