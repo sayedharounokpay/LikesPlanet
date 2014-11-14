@@ -67,11 +67,16 @@ class dbTable {
         $limit = $offset + $this->limit;
         $where ="";
         $blank = 0;
-        $wherecount = count($_POST);
-        echo 'Post count:'.$wherecount;
+        
         if(isset($_GET['search'])) {
             $where = "";
             $wheres = 1;
+            $wherecount = 0;
+        foreach($_POST as $key=>$val) {
+            if(strlen($val) > 0){
+                $wherecount++;
+            }
+        }
             if($_GET['search'] == 'true') {
                 foreach($_POST as $key => $val){
                     
@@ -103,7 +108,7 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
-                    if(count($_POST) > 1 && $wheres < count($_POST) && $is_blank != true ) {
+                    if($wherecount > 1 && $wheres < $wherecount && $is_blank != true ) {
                         
                         $where .= "AND";
                     }
