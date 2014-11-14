@@ -56,29 +56,16 @@ class dbTable {
         echo '</form>';
     }
     
-    public function display_table() {
-        echo '<table class="table table-bordered">';
-        echo '<thead><tr>';
-        foreach($this->cols as $col) {
-            echo '<th>'.$col.'</th>';
-        }
-        echo '<thead></tr>';
-        $offset = $this->pagenum * $this->limit;
-        $limit = $offset + $this->limit;
-        $where ="";
-        $blank = 0;
+    private function build_search($array,$page=0) {
+        $offset=0;
+        $limit=500;
+        $where = "";
         
-        if(isset($_GET['search'])) {
-            $where = "";
-            $wheres = 1;
-            $wherecount = 0;
-        foreach($_POST as $key=>$val) {
-            if(strlen($val) > 0){
-                $wherecount++;
-            }
+        if($page > 0) {
+            $offset = $limit*($page-1);
+            $limit = $offset+$limit;
         }
-            if($_GET['search'] == 'true') {
-                foreach($_POST as $key => $val){
+        foreach($array as $key => $val){
                     
                     $searchparam = "";
                     $greaterrange =0;
@@ -115,11 +102,44 @@ class dbTable {
                     $wheres++;
                     
                 }
+                
+                $returnarr = array('where'=>$where,'offset'=>$offset,'limit'=>$limit);
+                return $returnarr;
+    }
+    
+    public function display_table() {
+        echo '<table class="table table-bordered">';
+        echo '<thead><tr>';
+        foreach($this->cols as $col) {
+            echo '<th>'.$col.'</th>';
+        }
+        echo '<thead></tr>';
+        $offset = $this->pagenum * $this->limit;
+        $limit = $offset + $this->limit;
+        $where ="";
+        $blank = 0;
+        $returnarr = array();
+        if(isset($_GET['search'])) {
+            $_SESSION['searchparam'] = array();
+            $where = "";
+            $wheres = 1;
+            $wherecount = 0;
+        foreach($_POST as $key=>$val) {
+            if(strlen($val) > 0){
+                $wherecount++;
+            }
+            $_SESSION['searchparam'][$key] = $val;
+        }
+            if($_GET['search'] == 'true') {
+                $returnarr = $this->build_search($_SESSION['searchparam']);
+                $where = $returnarr['where'];
+                $limit = $returnarr['limit'];
+                $offset = $returnarr['offset'];
             }
         }
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
         if(strlen($where) > 5) {
-            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT 500";
+            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
         }
        //echo $query;
       
@@ -164,6 +184,37 @@ class dbTable {
         $pages = round($count/$this->limit);
         
         $action = "";
+        if(isset($_GET['action'])){
+            $action=$_GET['action'];
+        }
+        $pagenum = $this->pagenum + 1;
+        $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        echo '<ul class="pagination">';
+        for($i = $pagenum - 5; $i < $pagenum + 5; $i++) 
+        {
+           
+            if($i > 0 && $i <=$pages) {
+                $new_link = str_replace('pagenum='.$pagenum, 'pagenum='.$i, $actual_link);
+                if($new_link == $actual_link) {
+                    $new_link = $actual_link.'&pagenum='.$i;
+                }
+                if($i == $pagenum) echo '<li><a class="active" href="#">'.$i.'</a></li>';
+                else echo '<li><a href="'.$new_link.'">'.$i.'</a></li>';
+            }
+        }
+        echo '</ul>';
+        }
+        
+        else if(isset($_GET['search'])) {
+            $returnarr = $this->build_search($_SESSION['searchparam']);
+            $where = $returnarr['where'];
+            $result = $db->query("SELECT COUNT(*) FROM {$this->table} WHERE $where");
+            $row = $result->fetch_row();
+            $count = $row[0];
+        
+            $pages = round($count/$this->limit);
+            
+            $action = "";
         if(isset($_GET['action'])){
             $action=$_GET['action'];
         }
