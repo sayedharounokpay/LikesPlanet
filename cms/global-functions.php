@@ -159,6 +159,7 @@ class dbTable {
         if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
         }
+        echo $query;
        //echo $query;
       
         echo '<tbody>';
