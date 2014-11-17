@@ -62,7 +62,7 @@ class dbTable {
                             . '</div>';
                 
             }
-            echo '<div class="form-group pull-right"><input type="submit" class="btn btn-primary" value="Search"/></div>';
+            echo '<div class="form-group pull-right"><input type="submit" id="searchbtn-frmsearch" class="btn btn-primary" value="Search"/></div>';
         }
         else {
            echo 'Search Functionality Error';
