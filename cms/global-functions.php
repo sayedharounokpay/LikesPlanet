@@ -79,8 +79,7 @@ class dbTable {
             $offset = $limit*$page;
             $limit = $offset+$this->limit;
         }
-        echo 'Limit: '.$limit;
-        echo '<br/>Offset: '.$offset;
+        
         foreach($array as $key => $val){
                     
                     $searchparam = "";
@@ -160,8 +159,7 @@ class dbTable {
         if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
         }
-        echo $query;
-       //echo $query;
+       
       
         echo '<tbody>';
         global $db;

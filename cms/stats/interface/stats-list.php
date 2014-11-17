@@ -53,6 +53,33 @@ if(isset($_GET['pagenum'])) {
 
 $usertable = new dbTable($table, $cols, $limit, $pagenum, $user_options = 2);
 $usertable->display_search(array('user_id'=>'User ID','date'=>'Date','coins_gained_greaterrange'=>'Points Gained >=','coins_deducted_greaterrange' => 'Points Deducted >='));
+
+if(isset($_SESSION['searchparam'])) {
+    global $db;
+    $user_arr = $_SESSION['searchparam'];
+    if(isset($user_arr['user_id'])) {
+        $userid = $user_arr['user_id'];
+        $query = "SELECT sum(coins_gained) as sum_gained FROM statistics WHERE user_id={$userid}";
+        if($result = $db->query($query)) {
+            if($row = mysqli_fetch_assoc($result)) {
+                echo 'Total Points Gained: '.$row['sum_gained'];
+            }
+        }
+        $query = "SELECT sum(coins_deducted) as sum_deducted FROM statistics WHERE user_id={$userid}";
+        if($result = $db->query($query)) {
+            if($row = mysqli_fetch_assoc($result)) {
+                echo 'Total Points Deducted: '.$row['sum_deducted'];
+            }
+        }
+        $query = "SELECT coins FROM users WHERE id={$userid}";
+        if($result = $db->query($query)) {
+            if($row = mysqli_fetch_assoc($result)) {
+                echo 'Total Points in Account: '.$row['coins'];
+            }
+        }
+    }
+}
+
 $usertable->display_table();
 $usertable->pagination();
 ?>
