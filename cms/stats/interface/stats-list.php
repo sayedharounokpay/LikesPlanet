@@ -58,25 +58,27 @@ if(isset($_SESSION['searchparam'])) {
     global $db;
     $user_arr = $_SESSION['searchparam'];
     if(isset($user_arr['user_id'])) {
+        echo '<table class="table table-bordered"><thead><tr><th>Total Points Gained</th><th>Total Points Used</th><th>Total Points in Account</th></tr><tbody><tr>';
         $userid = $user_arr['user_id'];
         $query = "SELECT sum(coins_gained) as sum_gained FROM statistics WHERE user_id={$userid}";
         if($result = $db->query($query)) {
             if($row = mysqli_fetch_assoc($result)) {
-                echo 'Total Points Gained: '.$row['sum_gained'];
+                echo '<td>'.$row['sum_gained'].'</td>';
             }
         }
         $query = "SELECT sum(coins_deducted) as sum_deducted FROM statistics WHERE user_id={$userid}";
         if($result = $db->query($query)) {
             if($row = mysqli_fetch_assoc($result)) {
-                echo 'Total Points Deducted: '.$row['sum_deducted'];
+                echo '<td>'.$row['sum_deducted'].'</td>';
             }
         }
         $query = "SELECT coins FROM users WHERE id={$userid}";
         if($result = $db->query($query)) {
             if($row = mysqli_fetch_assoc($result)) {
-                echo 'Total Points in Account: '.$row['coins'];
+                echo '<td>'.$row['coins'].'</td>';
             }
         }
+        echo '</tbody></table>';
     }
 }
 
