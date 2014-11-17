@@ -108,6 +108,8 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
+                    echo 'WhereCount: '.$wherecount;
+                    echo '<br>wheres: '.$wheres;
                     if($wherecount > 1 && $wheres < $wherecount && $is_blank != true ) {
                         
                         $where .= "AND";
