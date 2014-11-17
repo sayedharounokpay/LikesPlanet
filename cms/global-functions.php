@@ -46,6 +46,7 @@ class dbTable {
         
         $new_link = (strpos($link,'&search=true') == TRUE) ? $link : $link.'&search=true';
         $new_link = str_replace('&searchthrough=true','',$new_link);
+        $new_link = str_replace('&pagenum=','&oldencrypt=',$new_link);
         echo '<h4>Search</h4>';
         echo '<form class="form-horizontal" action="'.$new_link.'" style="display:block;margin-bottom:45px;" method="POST">';
         if(is_array($search)) {
