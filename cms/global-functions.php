@@ -68,7 +68,12 @@ class dbTable {
         $offset=0;
         $limit=$this->limit;
         $where = "";
-        
+        $wherecount = 0;
+        foreach($array as $key=>$val) {
+            if(strlen($val) > 0){
+                $wherecount++;
+            }
+        }
         if($page > 0) {
             $offset = $limit*$page;
             $limit = $offset+$limit;
@@ -147,7 +152,7 @@ class dbTable {
                 $limit = $returnarr['limit'];
                 $offset = $returnarr['offset'];
             }
-        var_dump($_SESSION['returnarr']);
+        
         $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
         if(strlen($where) > 5) {
             $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
