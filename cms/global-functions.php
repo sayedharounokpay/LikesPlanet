@@ -79,7 +79,7 @@ class dbTable {
             $limit = $offset+$this->limit;
         }
         echo 'Limit: '.$limit;
-        echo '<br/>Offset: '.$offest;
+        echo '<br/>Offset: '.$offset;
         foreach($array as $key => $val){
                     
                     $searchparam = "";
