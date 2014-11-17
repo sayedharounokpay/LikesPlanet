@@ -76,7 +76,7 @@ class dbTable {
         }
         if($page > 0) {
             $offset = $limit*$page;
-            $limit = $offset+$limit;
+            $limit = $offset+$this->limit;
         }
         foreach($array as $key => $val){
                     
@@ -108,8 +108,6 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
-                    echo 'WhereCount: '.$wherecount;
-                    echo '<br>wheres: '.$wheres;
                     if($wherecount > 1 && $wheres < $wherecount && $is_blank != true ) {
                         
                         $where .= "AND";
