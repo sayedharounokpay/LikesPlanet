@@ -1,5 +1,7 @@
 <?php
 require_once('conn.php');
+
+
 class dbTable {
     public $cols = array();
     protected $pagenum;
@@ -8,6 +10,7 @@ class dbTable {
     protected $user_options;
     protected $last_col;
     protected $checkbox_arr;
+    protected $order;
     /**
      * __construct
      * 
@@ -19,8 +22,10 @@ class dbTable {
      * @param pagenum The Current Page number
      * @param user_options Array to display what types of options the administrator has
      * @param last_col An option to add code to the last Columns
+     * @param checkbox_arr An Option to add a checkbox to the table
+     * @param order 'ASC' Or 'DESC'
      */
-    public function __construct($table,$cols,$limit,$pagenum=1,$user_options=array(),$last_col="",$checkbox_arr=array()) {
+    public function __construct($table,$cols,$limit,$pagenum=1,$user_options=array(),$last_col="",$checkbox_arr=array(),$order="") {
         $pagenum--;
         $this->pagenum = $pagenum;
         $this->limit = $limit;
@@ -28,23 +33,26 @@ class dbTable {
         $this->user_options = $user_options;
         $this->checkbox_arr = $checkbox_arr;
         $this->last_col = $last_col;
+        $this->order = $order;
         foreach($cols as $key=>$val){
            $this->cols[$key] = $val;
         }
     }
+    
     
     public function display_search($search,$search_length=array()) {
         $link = $this->full_url($_SERVER);
         //echo $link;
         
         $new_link = (strpos($link,'&search=true') == TRUE) ? $link : $link.'&search=true';
+        $new_link = str_replace('&searchthrough=true','',$new_link);
         echo '<h4>Search</h4>';
         echo '<form class="form-horizontal" action="'.$new_link.'" style="display:block;margin-bottom:45px;" method="POST">';
         if(is_array($search)) {
             foreach($search as $key => $val) {
                     $value = (isset($_POST[$key])) ? $_POST[$key] : '';
                     echo '<div class="form-group col-sm-4" style="">'
-                    . '<label for="" class="control-label col-sm-4">'.$val.'</label><div class="col-sm-8"><input style="" type="text" name="'.$key.'" value="'.$value.'" class=" form-control"/></div>'
+                    . '<label for="" class="control-label col-sm-4">'.$val.'</label><div class="col-sm-8"><input style="" id="'.$key.'" type="text" name="'.$key.'" value="'.$value.'" class=" form-control"/></div>'
                             . '</div>';
                 
             }
