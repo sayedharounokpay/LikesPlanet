@@ -13,7 +13,7 @@
                 if(isNaN(data)) alert(data);
                 else{  
                     $('#user_id').val(data); 
-                    $('#searchbtn-frmsearch').click();
+                    
                     }
             }
             
