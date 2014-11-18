@@ -1,4 +1,4 @@
-<?
+<?php
 include('config.php');
 if($site->maintenance > 0){
 echo "<script>document.location.href='maintenance'</script>";

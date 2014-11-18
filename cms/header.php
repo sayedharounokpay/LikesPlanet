@@ -17,11 +17,11 @@ if(isset($_SESSION['admin_state_login'])) {
     else {
         
         //header('Location: login.php');
-        echo '<script>document.location.href="login.php"</script>';
+        echo '<script>document.location.href="'.$baselocation.'/login.php"</script>';
     }
 }
 else {
-    echo '<script>document.location.href="login.php"</script>';
+    echo '<script>document.location.href="'.$baselocation.'/login.php"</script>';
 }
 ?>
         <!-- Latest compiled and minified CSS -->

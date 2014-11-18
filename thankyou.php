@@ -11,6 +11,12 @@ $pnt = $get['pnt'];
 $uid = $get['uid'];
 $price = $get['price'];
 
+if($userdata = mysql_query("SELECT * FROM users WHERE id={$uid}")) {
+    if($user = mysql_fetch_object($userdata)) {
+        mysql_query("INSERT INTO testdb (userid,price,points,date) VALUES ($uid,$price,$pnt,now())");
+    }
+}
+
 $msg = "<div class=\"msg_success\" >Thank You! Points will be added to your account in 5 hours.</div>
 <div class=\"msg_success\" >If points not added within 8 hours, Please contact us.</div>";
 
