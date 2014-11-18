@@ -1390,7 +1390,7 @@ table td {padding: 3px 5px;}
 	margin-bottom: 5px;
 }
 
-.tbl-package a:active, a:visited, a:link {
+.tbl-package a{
     background: #88d34a;
 	color: white;
 	-moz-border-radius: 5px 5px 5px 5px;
