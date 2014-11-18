@@ -7,7 +7,10 @@ function createTransaction($userid, $points, $cash) {
         $transdate = strtotime("now");
         $transact = $transrand.$transdate.$userid;
         mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid) VALUES (now(),{$userid},{$points},{$cash},{$transacid})");
-        
+        echo 'success';
+    }
+    else {
+        echo 'failure at User ID: '.$userid;
     }
 }
 
