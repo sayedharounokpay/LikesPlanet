@@ -226,6 +226,9 @@ else {
  */
 ?>
 <script>
-    $('#formPaypal').submit();
+    $('document').ready(function(){
+        alert('ready');
+        $('#formPaypal').submit();
+    });
     </script>
 
