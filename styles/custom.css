@@ -1373,7 +1373,7 @@ table td {padding: 3px 5px;}
 	text-align: center;
 }
 
-.tbl-package input.submit {
+.tbl-package input.submit, a.submit {
 	background: #88d34a;
 	color: white;
 	-moz-border-radius: 5px 5px 5px 5px;
