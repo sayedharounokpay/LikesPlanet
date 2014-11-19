@@ -28,9 +28,9 @@ else {
                     <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#100,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#100,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="100000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="50">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -51,9 +51,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#225,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#225,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="225000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'>
 <input type="hidden" name="amount" value="100">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -73,9 +73,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#500,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#500,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="500000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="200">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -95,9 +95,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#4,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#4,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="4000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="4">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -119,9 +119,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#25,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#25,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="25000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="20">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -141,9 +141,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#60,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#60,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="60000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="40">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -163,9 +163,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#100,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#100,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="100000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="60">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -185,9 +185,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#140,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#140,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="140000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="80">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -207,9 +207,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#9,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#9,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="9000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="8">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -229,9 +229,9 @@ else {
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
 <input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#9,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_name" value="#9,000 Points to '.$data->login.'">
 <input type="hidden" name="item_number" value="1000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="custom" value="'.$data->login.'">
 <input type="hidden" name="amount" value="1">
 <input type="hidden" name="currency_code" value="USD">
 <input type="hidden" name="button_subtype" value="services">
@@ -256,6 +256,7 @@ else {
  * and open the template in the editor.
  */
 ?>
+Processing... Please wait a moment
 <script>
     $('document').ready(function(){
         $('form').submit();
