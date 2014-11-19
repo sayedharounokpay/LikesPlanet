@@ -223,6 +223,28 @@ else {
 
 </form>';
         }
+        else if($type == 1000) {
+            $transactid=createTransaction($user_id, 9000, 8);
+            echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="likesplanet.com@gmail.com">
+<input type="hidden" name="lc" value="RO">
+<input type="hidden" name="item_name" value="#9,000 Points to <? echo $data->login; ?>">
+<input type="hidden" name="item_number" value="1000">
+<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="amount" value="1">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="button_subtype" value="services">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="no_shipping" value="2">
+<input type="hidden" name="rm" value="1">
+<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=1000&price=1">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=1000&price=1&transactid='.$transactid.'"> 
+<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+
+</form>';
+        }
     }
     else {
         echo '<script>document.location.href="http://www.likesplanet.com"</script>';
