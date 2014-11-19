@@ -53,6 +53,7 @@ else {
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?=$baselocation?>/users/base.php?action=edit-logon-avab">Edit User Logon Availability</a></li>
+                <li><a href="<?=$baselocation?>/users/base.php?action=send-email">Send Mass email</a></li>
                 
               </ul>
             </li>

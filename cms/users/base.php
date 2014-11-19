@@ -9,6 +9,9 @@ if(isset($_GET['action'])) {
     if($_GET['action'] == 'edit-logon-avab') {
         require_once('interface/user-list.php');
     }
+    else if($_GET['action'] == "sned-email") {
+        require_once('interface/send-email.php');
+    }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');
     }
