@@ -7,10 +7,10 @@ function createTransaction($userid, $points, $cash) {
         $transdate = strtotime("now");
         $transactid = $transrand.$transdate.$userid;
         mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid) VALUES (now(),{$userid},{$points},{$cash},'{$transacid}')");
-        echo 'success';
+       return $transactid;
     }
     else {
-        echo 'failure at User ID: '.$userid;
+        return -1;
     }
 }
 
@@ -38,10 +38,10 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=100000&price=50">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=100000&price=50">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=100000&price=50&price=8&transactid='.$transactid.'">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         
@@ -61,13 +61,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=225000&price=8&transactid='.$transactid.'">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 3) {
-            createTransaction($user_id, 500000, 200);
+            $transactid=createTransaction($user_id, 500000, 200);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -82,13 +83,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=500000&price=200&transactid='.$transactid.' ">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 4) {
-            createTransaction($user_id, 4000, 4);
+            $transactid=createTransaction($user_id, 4000, 4);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -104,14 +106,15 @@ else {
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=4000&price=4">
 <input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=4000&price=4">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=4000&price=4&transactid='.$transactid.'">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
             
         }
         else if($type == 5) {
-            createTransaction($user_id, 25000, 20);
+            $transactid= createTransaction($user_id, 25000, 20);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -126,14 +129,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=25000&price=20">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=25000&price=20">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=25000&price=20&transactid='.$transactid.'">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 6) {
-            createTransaction($user_id, 60000, 40);
+            $transactid=createTransaction($user_id, 60000, 40);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -148,13 +151,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=60000&price=40&transactid='.$transactid.'"> 
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 7) {
-            createTransaction($user_id, 100000, 60);
+            $transactid=createTransaction($user_id, 100000, 60);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -169,13 +173,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=100000&price=60&transactid='.$transactid.'"> 
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 8) {
-            createTransaction($user_id, 140000, 80);
+            $transactid=createTransaction($user_id, 140000, 80);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -190,13 +195,14 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=140000&price=80&transactid='.$transactid.'"> 
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
         else if($type == 10) {
-            createTransaction($user_id, 9000, 8);
+            $transactid=createTransaction($user_id, 9000, 8);
             echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -211,10 +217,10 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=9000&price=8">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=9000&price=8">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt=9000&price=8&transactid='.$transactid.'"> 
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
+
 </form>';
         }
     }
@@ -230,8 +236,7 @@ else {
 ?>
 <script>
     $('document').ready(function(){
-        alert('ready');
-        $('form').submit();
+        $('#formPaypal').submit();
     });
     </script>
 
