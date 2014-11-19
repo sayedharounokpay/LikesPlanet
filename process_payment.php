@@ -27,10 +27,10 @@ $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 mail($to, $subject, $message, $headers);
 
 if(isset($_GET['transactid'])) {
-    $results = mysql_query("SELECT * FROM transactions WHERE transactid='".$_GET['transactid']."'");
+    $results = mysql_query("SELECT * FROM transactions WHERE transacid='".$_GET['transactid']."'");
     if($transaction = mysql_fetch_object($results)) {
         if($_POST['payment_status'] == 'Completed') {
-            mysql_query("UPDATE transactions SET valid=1 WHERE transactid='".$_GET['transactid']."'");
+            mysql_query("UPDATE transactions SET valid=1 WHERE transacid='".$_GET['transactid']."'");
         }
     }
 }
