@@ -17,8 +17,8 @@ if($userdata = mysql_query("SELECT * FROM users WHERE id={$uid}")) {
     }
 }
 
-$msg = "<div class=\"msg_success\" >Thank You! Points will be added to your account in 5 hours.</div>
-<div class=\"msg_success\" >If points not added within 8 hours, Please contact us.</div>";
+$msg = "<div class=\"msg_success\" >Thank You! Points will be added to your account.</div>
+<div class=\"msg_success\" >Note: some payments might take longer to process</div>";
 
 ?>
 
