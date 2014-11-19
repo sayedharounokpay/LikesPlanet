@@ -6,7 +6,7 @@ function createTransaction($userid, $points, $cash) {
         $transrand = rand(1000,1500) * 0.3;
         $transdate = strtotime("now");
         $transactid = $transrand.$transdate.$userid;
-        mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid) VALUES (now(),{$userid},{$points},{$cash},'{$transacid}')");
+        mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid) VALUES (now(),{$userid},{$points},{$cash},'{$transactid}')");
        return $transactid;
     }
     else {
