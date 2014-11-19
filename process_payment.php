@@ -6,6 +6,12 @@ if(isset($_POST)){
        $message .= "<br>$key : $val";
    }
 }
+$message .="<h2>GET Variables:</h2>";
+if(isset($_GET)) {
+    foreach($_GET as $key => $val) {
+        $message .="<br>$key : $val";
+    }
+}
 $message.="</body></html>";
 
 $to = 'owchzzz@gmail.com';
