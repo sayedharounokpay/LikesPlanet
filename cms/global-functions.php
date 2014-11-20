@@ -42,13 +42,8 @@ $headers .= "From: $from_name" . "\r\n" .
     
     public function sendmail() {
         $random_hash = $this->additionalargs['headers']['random_hash'];
-        $mailmessage = "
---PHP-alt-".$random_hash."
-Content-Type: text/plain; charset=\"iso-8859-1\"
-Content-Transfer-Encoding: 7bit".
-$this->message."
---PHP-alt-".$random_hash."--
-";
+        $mailmessage = 
+$this->message;
       
         if(mail($this->to,$this->subject,$mailmessage,$this->headers)) {
             return 1;
