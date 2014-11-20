@@ -1,6 +1,63 @@
 <?php
 require_once('conn.php');
 
+class emailMess {
+    private $temp1,$temp2;
+    public $message,$subject;
+    public $additionalargs;
+    private $to;
+    private $headers;
+    public function __construct($to,$message,$subject,$additionalargs=array()) {
+        $email1 = file_get_contents('email_temp1.php');
+        $email2 = file_get_contents('email_temp2.php');
+       $this->message = $email1.$message.$email2;
+       $this->subject = $subject;
+       $this->to = $to;
+       if(isset($headers) && strlen($headers) > 1){
+           $this->headers = $headers;
+       }
+       else {
+           if(isset($additionalargs)) {
+               $this->additionalargs = $additionalargs;
+           }
+           else {
+               $additionalargs['headers'] = array('from_name'=>'LikesPlanet.com',
+                   'from'=>'Administrator',
+                   'random_hash'=> md5(date_default_timezone_set("r")));
+           }
+           $from_name = $this->additionalargs['headers']['from_name'];
+           $from = $this->additionalargs['headers']['from'];
+           $random_hash = $this->additionalargs['headers']['random_hash'];
+           
+            $headers = "From: ".$from_name." <".$from.">" . "\r\n";
+            $headers .= "Reply-To: ".$from_name." <".$from.">" . "\r\n";
+            $headers .= "Date: ".date_default_timezone_set("r") . "\r\n";
+            // Additional headers
+            $headers .= "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-Type: multipart/alternative; boundary=\"PHP-alt-" . $random_hash . "\"\r\n";
+            $headers .= "Message-Id: <" . md5(uniqid(microtime())) . "@" . $_SERVER["SERVER_NAME"] . ">\r\n";
+            $this->headers = $headers;
+       }
+    }
+    
+    public function sendmail() {
+        $random_hash = $this->additionalargs['headers']['random_hash'];
+        $mailmessage = "
+--PHP-alt-".$random_hash."
+Content-Type: text/plain; charset=\"iso-8859-1\"
+Content-Transfer-Encoding: 7bit
+$this->message
+--PHP-alt-".$random_hash."--
+";
+        if(mail($this->to,$mailmessage,$this->subject,$this->headers)) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+        
+    }
+}
 
 class dbTable {
     public $cols = array();

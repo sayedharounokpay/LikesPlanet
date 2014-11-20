@@ -12,8 +12,24 @@ if(isset($_GET['action'])) {
     else if($_GET['action'] == "send-email") {
         require_once('interface/send-email.php');
     }
+    else if($_GET['action'] == 'email-send-act') {
+        
+    }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');
+        global $db;
+        /*
+        if($result = $db->query("SELECT DISTINCT email FROM users")) {
+            $count = $result->num_rows;
+            $exectime = ($count * 0.5) * 100;
+            set_time_limit($exectime);
+            while($row = $result->fetch_assoc) {
+                $message = $_POST['message'];
+                $subject = $_POST['subject'];
+            }
+        }*/
+        $mailsender = new emailMess('owchzzz@gmail.com', $_POST['message'], $_POST['subject']);
+        $mailsender->sendmail();
     }
     
     else if($_GET['action'] == "save_edit") {
