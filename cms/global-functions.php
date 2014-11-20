@@ -36,7 +36,7 @@ class emailMess {
             $headers .= "Date: ".date_default_timezone_set("r") . "\r\n";
             // Additional headers
             $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-Type: multipart/alternative; boundary=\"PHP-alt-" . $random_hash . "\"\r\n";
+            $headers .= "Content-Type: text/html;charset=iso-8859-1; boundary=\"PHP-alt-" . $random_hash . "\"\r\n";
             $headers .= "Message-Id: <" . md5(uniqid(microtime())) . "@" . $_SERVER["SERVER_NAME"] . ">\r\n";
             $this->headers = $headers;
        }
