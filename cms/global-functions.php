@@ -11,7 +11,7 @@ class emailMess {
         global $baselocation;
         $email1 = file_get_contents($baselocation."/email_temp1.php");
         $email2 = file_get_contents($baselocation.'/email_temp2.php');
-       $this->message = $email1.$message.$email2;
+       $this->message = $message;
        $this->subject = $subject;
        $this->to = $to;
        if(isset($headers) && strlen($headers) > 1){
@@ -33,11 +33,10 @@ class emailMess {
            
             $headers = "From: ".$from_name." <".$from.">" . "\r\n";
             $headers .= "Reply-To: ".$from_name." <".$from.">" . "\r\n";
-            $headers .= "Date: ".date_default_timezone_set("r") . "\r\n";
             // Additional headers
             $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-Type: text/html;charset=iso-8859-1; boundary=\"PHP-alt-" . $random_hash . "\"\r\n";
-            $headers .= "Message-Id: <" . md5(uniqid(microtime())) . "@" . $_SERVER["SERVER_NAME"] . ">\r\n";
+            $headers .= "Content-Type: text/html;charset=iso-8859-1\r\n";
+            
             $this->headers = $headers;
        }
     }
