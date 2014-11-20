@@ -50,7 +50,7 @@ Content-Transfer-Encoding: 7bit
 $this->message
 --PHP-alt-".$random_hash."--
 ";
-        mail
+      
         if(mail($this->to,$this->subject,$mailmessaget,$this->headers)) {
             return 1;
         }
