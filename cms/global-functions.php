@@ -31,12 +31,11 @@ class emailMess {
            $from = $this->additionalargs['headers']['from'];
            $random_hash = $this->additionalargs['headers']['random_hash'];
            
-            $headers = "From: ".$from_name." <".$from.">" . "\r\n";
-            $headers .= "Reply-To: ".$from_name." <".$from.">" . "\r\n";
-            // Additional headers
-            $headers .= "MIME-Version: 1.0" . "\r\n";
-            $headers .= "Content-Type: text/html;charset=iso-8859-1\r\n";
-            
+            $headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1" . "\r\n";
+$headers .= "From: $from_name" . "\r\n" .
+"Reply-To: $from" . "\r\n" .
+"X-Mailer: PHP/" . phpversion();
             $this->headers = $headers;
        }
     }
