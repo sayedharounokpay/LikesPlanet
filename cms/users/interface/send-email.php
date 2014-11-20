@@ -12,6 +12,6 @@
             
         </textarea>
     </div>
-    <input type="submit" class="btn btn-lg btn-default" value="Submit"/>
+    <input type="submit" class="btn btn-lg btn-default pull-right" value="Submit"/>
 </form>
 </div>

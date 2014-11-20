@@ -13,11 +13,7 @@ if(isset($_GET['action'])) {
         require_once('interface/send-email.php');
     }
     else if($_GET['action'] == 'email-send-act') {
-        
-    }
-    else if($_GET['action'] == "uoptions") {
-        require_once('interface/user-options.php');
-        global $db;
+         global $db;
         /*
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
@@ -30,6 +26,10 @@ if(isset($_GET['action'])) {
         }*/
         $mailsender = new emailMess('owchzzz@gmail.com', $_POST['message'], $_POST['subject']);
         $mailsender->sendmail();
+    }
+    else if($_GET['action'] == "uoptions") {
+        require_once('interface/user-options.php');
+       
     }
     
     else if($_GET['action'] == "save_edit") {
