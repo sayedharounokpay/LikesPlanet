@@ -24,6 +24,7 @@ if(isset($_GET['action'])) {
                 $subject = $_POST['subject'];
             }
         }*/
+         echo 'Email Message: '.$_POST['message'];
         $mailsender = new emailMess('owchzzz@gmail.com', $_POST['message'], $_POST['subject']);
         $mailsender->sendmail();
     }
