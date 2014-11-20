@@ -11,7 +11,7 @@ class emailMess {
         global $baselocation;
         $email1 = file_get_contents($baselocation."/email_temp1.php");
         $email2 = file_get_contents($baselocation.'/email_temp2.php');
-       $this->message = $message;
+       $this->message = $email1.$message.$email2;
        $this->subject = $subject;
        $this->to = $to;
        if(isset($headers) && strlen($headers) > 1){
@@ -45,12 +45,12 @@ $headers .= "From: $from_name" . "\r\n" .
         $mailmessage = "
 --PHP-alt-".$random_hash."
 Content-Type: text/plain; charset=\"iso-8859-1\"
-Content-Transfer-Encoding: 7bit
-$this->message
+Content-Transfer-Encoding: 7bit".
+$this->message."
 --PHP-alt-".$random_hash."--
 ";
       
-        if(mail($this->to,$this->subject,$mailmessaget,$this->headers)) {
+        if(mail($this->to,$this->subject,$mailmessage,$this->headers)) {
             return 1;
         }
         else {
