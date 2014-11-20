@@ -10,7 +10,7 @@ class emailMess {
     public function __construct($to,$message,$subject,$additionalargs=array()) {
         global $baselocation;
         $email1 = file_get_contents($baselocation."/email_temp1.php");
-        $email2 = file_get_contents($baselocation.'email_temp2.php');
+        $email2 = file_get_contents($baselocation.'/email_temp2.php');
        $this->message = $email1.$message.$email2;
        $this->subject = $subject;
        $this->to = $to;
@@ -50,7 +50,8 @@ Content-Transfer-Encoding: 7bit
 $this->message
 --PHP-alt-".$random_hash."--
 ";
-        if(mail($this->to,$mailmessage,$this->subject,$this->headers)) {
+        mail
+        if(mail($this->to,$this->subject,$mailmessaget,$this->headers)) {
             return 1;
         }
         else {
