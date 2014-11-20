@@ -18,13 +18,14 @@ class emailMess {
            $this->headers = $headers;
        }
        else {
-           if(isset($additionalargs)) {
+           if(isset($additionalargs) && count($additionalargs)) {
                $this->additionalargs = $additionalargs;
            }
            else {
                $additionalargs['headers'] = array('from_name'=>'LikesPlanet.com',
                    'from'=>'Administrator',
                    'random_hash'=> md5(date_default_timezone_set("r")));
+               $this->additionalargs = $additionalargs;
            }
            $from_name = $this->additionalargs['headers']['from_name'];
            $from = $this->additionalargs['headers']['from'];
