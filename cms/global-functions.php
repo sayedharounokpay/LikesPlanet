@@ -23,7 +23,7 @@ class emailMess {
            }
            else {
                $additionalargs['headers'] = array('from_name'=>'LikesPlanet.com',
-                   'from'=>'Administrator',
+                   'from'=>'likesplanet.com@gmail.com',
                    'random_hash'=> md5(date_default_timezone_set("r")));
                $this->additionalargs = $additionalargs;
            }
