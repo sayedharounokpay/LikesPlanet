@@ -1,6 +1,18 @@
 <?php
 require_once('conn.php');
 
+function authenticate_page($userlevel) {
+    if($userlevel == 1){
+        if($data->id == 1){
+            return true;
+        }
+        else {
+            global $baselocation;
+            echo '<script>document.location.href="'.$baselocation.'/dashboard.php";</script>';
+        }
+    }
+}
+
 class emailMess {
     private $temp1,$temp2;
     public $message,$subject;

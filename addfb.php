@@ -61,6 +61,8 @@ $verificareB = mysql_num_rows($verificare1);
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `user`='{$data->id}'");
 $verificareC = mysql_num_rows($verificare1);
 
+if($data->id == 1){ $verificareA = $verificareB = $verificareC = 1;}
+
 if($verificareA > 0) {
 $message = "Error: Page Added before by You or someone else!</br>Click on (My Pages) to see if you added before,</br>Add Points on your page to get more likes.</br>If page not added before by you, Contact us to add."; $message2 = 1;
 $msg = "<script language=javascript>TINY.box.show({html:'Do you want to Add Page Anyway?</br></br>You can try <a href=addfb_safe.php><b><font color=white>Safe Mode</font></b></a> to add page.</br></br></br>We do not recommend using Safe Mode,</br>but it is the only way if page is important for you.',animate:true,close:true,mask:false,boxid:'success',left:4});</script>";

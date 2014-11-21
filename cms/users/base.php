@@ -10,11 +10,13 @@ if(isset($_GET['action'])) {
         require_once('interface/user-list.php');
     }
     else if($_GET['action'] == "send-email") {
+        authenticate_page(1);
         require_once('interface/send-email.php');
     }
     else if($_GET['action'] == 'email-send-act') {
+        authenticate_page(1);
          global $db;
-        /*
+        echo 'Loading....';
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
@@ -23,10 +25,14 @@ if(isset($_GET['action'])) {
                 $message = $_POST['message'];
                 $subject = $_POST['subject'];
             }
-        }*/
-         echo 'Email Message: '.$_POST['message'];
-        $mailsender = new emailMess('owchzzz@gmail.com', $_POST['message'], $_POST['subject']);
-        $mailsender->sendmail();
+            echo 'Success!<br>';
+            echo 'Email Sent to '.$count.' Unique Emails';
+        }
+        else {
+            echo 'Failure. Error code 101';
+        }
+        
+        
     }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');

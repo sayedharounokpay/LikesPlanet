@@ -1389,22 +1389,3 @@ table td {padding: 3px 5px;}
 	border: 0px;
 	margin-bottom: 5px;
 }
-
-.tbl-package a,a:hover{
-    background: #88d34a;
-   margin-bottom:15px;
-	color: white;
-	-moz-border-radius: 5px 5px 5px 5px;
-	-webkit-border-radius: 5px 5px 5px 5px;
-	color: #fff;
-	font-family: 'proxima_nova_rgbold';
-	font-weight: 600;
-	text-transform: uppercase;
-	font-size: 15px;
-	padding: 8px 18px;
-	box-shadow: inset 0px -3px 0px 0px #71b539;
-	-moz-box-shadow: inset 0px -3px 0px 0px #71b539;
-	border: 0px;
-	margin-bottom: 5px;
-}
-
