@@ -16,7 +16,16 @@ if(isset($_GET['action'])) {
     else if($_GET['action'] == 'email-send-act') {
         authenticate_page(1);
          global $db;
-        echo 'Loading....';
+        ?>
+<form action="<?=$baselocation;?>/users/base.php?action=email-send-conf" method="POST">
+    <input type="hidden" name="message" value="<?=$_POST['message']?>"/>
+    <input type="hidden" name="subject" value="<?=$_POST['subject']?>"/>
+    <input type="submit" class="btn btn-success btn-lg" value="Click to confirm email send"/>
+</form>
+        <?php
+        
+    }
+    else if($_GET['action'] == 'email-send-conf') {
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
@@ -24,6 +33,7 @@ if(isset($_GET['action'])) {
             while($row = $result->fetch_assoc) {
                 $message = $_POST['message'];
                 $subject = $_POST['subject'];
+                $emailMessage = new emailMess($row['email'], $message, $subject);
             }
             echo 'Success!<br>';
             echo 'Email Sent to '.$count.' Unique Emails';
@@ -31,8 +41,6 @@ if(isset($_GET['action'])) {
         else {
             echo 'Failure. Error code 101';
         }
-        
-        
     }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');

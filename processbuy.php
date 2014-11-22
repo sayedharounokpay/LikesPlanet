@@ -38,7 +38,7 @@ else {
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
 <input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid='.$data->id.'&pnt=100000&price=50">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid='.$data->id.'&pnt=100000&price=50&price=8&transactid='.$transactid.'">
+<input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php'.$data->id.'&pnt=100000&price=50&transactid='.$transactid.'">
 <input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
 

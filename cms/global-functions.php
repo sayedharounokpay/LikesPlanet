@@ -3,7 +3,7 @@ require_once('conn.php');
 
 function authenticate_page($userlevel) {
     if($userlevel == 1){
-        if($data->id == 1){
+        if($_SESSION['admin_level'] == $userlevel){
             return true;
         }
         else {

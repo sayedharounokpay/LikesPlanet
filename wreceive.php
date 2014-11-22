@@ -1,4 +1,4 @@
-<?
+<?PHP
 include('config.php');
 foreach($_POST as $key => $value) {
 	$protect[$key] = filter($value);
@@ -19,7 +19,7 @@ $site = mysql_fetch_object(mysql_query("SELECT * FROM `website` WHERE (`id`='{$x
  
 // echo "INSERT INTO visited  VALUES(0,{$x[1]},'{$x[0]}')";
 mysql_query("UPDATE `users` SET `coins`=`coins`-1 WHERE `id`='{$data->id}'");
-
+mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,website,log,page) VALUES ('.$data->id.',now(),1,1,'Points Deducted From Bad Website View','wreceive.php')");
 $ff = time();  // get_file_content(wcalc_time.php);
 // $ff2 = 35 + $data->pagelikesnow;
 // $ff3 = -15 + $ff;
@@ -44,7 +44,7 @@ mysql_query("INSERT INTO `notebyemail` (username, title, msg, link, email) VALUE
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$site->cpc}', `hitstoday`=`hitstoday`+1 WHERE `id`='{$data->id}'");
 mysql_query("UPDATE `website` SET `points`=`points`-'{$site->cpc}', `likes`=`likes`+1 WHERE `id`='{$x[0]}'");
-
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,website,log,page) VALUES ('.$data->id.',now(),{$site->cpc},1,'Points Added From Website View','wreceive.php')");
 $mmillesecc = microtime(true);
 mysql_query("INSERT INTO `last_hits` (user_name, site_name, site_type, time) VALUES('{$data->login}', '{$site->title}', 'w', '{$mmillesecc}' )");
 
