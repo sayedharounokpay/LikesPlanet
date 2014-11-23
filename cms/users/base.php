@@ -20,12 +20,57 @@ if(isset($_GET['action'])) {
 <form action="<?=$baselocation;?>/users/base.php?action=email-send-conf" method="POST">
     <input type="hidden" name="message" value="<?=$_POST['message']?>"/>
     <input type="hidden" name="subject" value="<?=$_POST['subject']?>"/>
+    <div class="row" style="padding:15px; background-color:#f6f6f6;">
+        <h4>Filters</h4>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_ban" checked> Exclude Banned Users
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_paying" checked> Include Paying Customers
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_nonpaying" checked> Include Non-paying Customers
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_active" checked> Include Active Customers (1 year)
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_nonactive" checked> Include Non-Active Customers (1 year)
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_activeweek"> Include Active only within 1 week
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_nonactiveweek"> Include Non-Active Customers only within 1 week
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="filter_nonactiveweek"> Include Non-Active Customers only within 1 week
+            </label>
+        </div>
+        
+    </div>
     <input type="submit" class="btn btn-success btn-lg" value="Click to confirm email send"/>
 </form>
         <?php
         
     }
     else if($_GET['action'] == 'email-send-conf') {
+        authenticate_page(1);
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
