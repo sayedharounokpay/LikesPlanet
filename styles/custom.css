@@ -1387,11 +1387,12 @@ table td {padding: 3px 5px;}
 	box-shadow: inset 0px -3px 0px 0px #71b539;
 	-moz-box-shadow: inset 0px -3px 0px 0px #71b539;
 	border: 0px;
+        margin-top:15px;
 	margin-bottom: 5px;
 }
 
-a.payment_btn {
-        
+a.payment_btn, a.payment_btn:hover {
+        margin-top:-5px;
         background: #88d34a;
 	color: white;
 	-moz-border-radius: 5px 5px 5px 5px;
