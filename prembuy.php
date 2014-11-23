@@ -62,9 +62,9 @@ if(isset($_GET['id'])) {
 <input type="hidden" name="no_note" value="1">
 <input type="hidden" name="no_shipping" value="2">
 <input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="'.$site->site_url.'/thankyou2.php?uid='.$data->id.'&pnt='.$pack->coins.'">
-    <input type="hidden" name="notify_url" value="'.$site->site_url.'/process_payment.php?uid='.$data->id.'&pnt='.$pack->coins.'&transactid='.$transactid.'">
-<input type="hidden" name="cancel_return" value="'.$site->site_url.'">
+<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou2.php?uid='.$data->id.'&pnt='.$pack->coins.'">
+    <input type="hidden" name="notify_url" value="http://www.likesplanet.com/process_payment.php?uid='.$data->id.'&pnt='.$pack->coins.'&transactid='.$transactid.'">
+<input type="hidden" name="cancel_return" value="http://www.likesplanet.com/">
 <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
 </form>';
         }
