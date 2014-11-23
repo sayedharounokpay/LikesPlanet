@@ -77,25 +77,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord7.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#100,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="100000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="50">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=100000&price=50">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=100000&price=50">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=1" class="" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#100,000 Points to <? echo $data->login; ?>">
@@ -118,24 +101,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord8.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#225,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="225000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="100">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=2" class="" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#225,000 Points to <? echo $data->login; ?>">
@@ -158,24 +125,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord9.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#500,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="500000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="200">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=3" class="" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#500,000 Points to <? echo $data->login; ?>">
@@ -200,25 +151,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord1.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#4,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="4000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="4">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=4000&price=4">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=4000&price=4">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=4" class="" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#4,000 Points to <? echo $data->login; ?>">
@@ -242,25 +176,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord2.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#9,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="9000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="8">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=9000&price=8">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=9000&price=8">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=10" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#9,000 Points to <? echo $data->login; ?>">
@@ -284,25 +201,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord3.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#25,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="25000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="20">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=25000&price=20">
-<input type="hidden" name="notify_url" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=25000&price=20">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=5" class="" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#25,000 Points to <? echo $data->login; ?>">
@@ -328,24 +228,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord4.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#60,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="60000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="40">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=6" class="" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#60,000 Points to <? echo $data->login; ?>">
@@ -369,24 +253,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord5.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#100,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="100000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="60">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+<a href="processbuy.php?type=7" class="" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#100,000 Points to <? echo $data->login; ?>">
@@ -410,24 +277,8 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord6.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-<input type="hidden" name="cmd" value="_xclick">
-<input type="hidden" name="business" value="likesplanet.com@gmail.com">
-<input type="hidden" name="lc" value="RO">
-<input type="hidden" name="item_name" value="#140,000 Points to <? echo $data->login; ?>">
-<input type="hidden" name="item_number" value="140000">
-<input type="hidden" name="custom" value="<? echo $data->id; ?>">
-<input type="hidden" name="amount" value="80">
-<input type="hidden" name="currency_code" value="USD">
-<input type="hidden" name="button_subtype" value="services">
-<input type="hidden" name="no_note" value="1">
-<input type="hidden" name="no_shipping" value="2">
-<input type="hidden" name="rm" value="1">
-<input type="hidden" name="return" value="http://www.likesplanet.com/thankyou.php?uid=<?echo $data->id;?>&pnt=0">
-<input type="hidden" name="cancel_return" value="http://www.likesplanet.com">
-<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
-<input type="submit" class="submit" style="width: 200px; " name="submit" value="(PayPal / CreditCard)">
-</form>
+
+<a href="processbuy.php?type=8" class="" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#140,000 Points to <? echo $data->login; ?>">

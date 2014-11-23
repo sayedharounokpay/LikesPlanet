@@ -34,7 +34,24 @@ echo "<center><font color='red' size=5><b> Please LOGIN First!</b></font></cente
 <center><img src="img/BBBp<? echo $j; ?>.png" border="0" title="Become VIP on LikesPlanet.com"></center>
 <div class="clearer">&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<a href="prembuy.php?id=<?=$pack->id;?>" class="submit" style="width: 200px; ">Purchase with Paypal</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="likesplanet.com@gmail.com">
+<input type="hidden" name="lc" value="RO">
+<input type="hidden" name="item_name" value="#<? echo $pack->name;?> to <? echo $data->login; ?>">
+<input type="hidden" name="item_number" value="<? echo $pack->name;?>">
+<input type="hidden" name="custom" value="<? echo $data->id; ?>">
+<input type="hidden" name="amount" value="<? echo $pack->price;?>">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="button_subtype" value="services">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="no_shipping" value="2">
+<input type="hidden" name="rm" value="1">
+<input type="hidden" name="return" value="<?echo $site->site_url;?>/thankyou2.php?uid=<?echo $data->id;?>&pnt=0">
+<input type="hidden" name="cancel_return" value="<?echo $site->site_url;?>">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynow_LG.gif:NonHosted">
+<input type="submit" class="submit" style="width: 200px; " name="submit" value="PayPal (Buy Now)">
+</form>
 <? } else { ?>
 <font color='red'>Login to Buy.</font>
 <? } ?>
