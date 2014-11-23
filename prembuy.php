@@ -48,7 +48,7 @@ if(isset($_GET['id'])) {
     if($packs = mysql_query("SELECT * FROM p_pack WHERE id={$id}")) {
         if($pack = mysql_fetch_object($packs)){
             $name = $pack->name;
-            $transactid=  createTransaction($id, $pack->coins, $pack->price);
+            $transactid=  createTransaction($data->id, $pack->coins, $pack->price);
             echo $transactid;
         echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
