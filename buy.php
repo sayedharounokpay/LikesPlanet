@@ -78,7 +78,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=1" class="payment_btn" style="width:200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=1" class="payment_btn" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#100,000 Points to <? echo $data->login; ?>">
@@ -102,7 +102,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=2" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=2" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#225,000 Points to <? echo $data->login; ?>">
@@ -126,7 +126,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=3" class="payment_btn" style="width:200px;">Paypal / Credit Card</a<br>
+<a href="processbuy.php?type=3" class="payment_btn" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#500,000 Points to <? echo $data->login; ?>">
@@ -152,7 +152,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=4" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=4" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#4,000 Points to <? echo $data->login; ?>">
@@ -177,7 +177,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=10" class="payment_btn" style="width:200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=10" class="payment_btn" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#9,000 Points to <? echo $data->login; ?>">
@@ -202,7 +202,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=5" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=5" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#25,000 Points to <? echo $data->login; ?>">
@@ -229,7 +229,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=6" class="payment_btn" style="width:200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=6" class="payment_btn" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#60,000 Points to <? echo $data->login; ?>">
@@ -253,7 +253,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <center><img src="img/ord5.jpg?a" border="0" title="Buy Points from LikesPlanet.com"></center>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
-<a href="processbuy.php?type=7" class="payment_btn" style="width:200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=7" class="payment_btn" style="width:200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#100,000 Points to <? echo $data->login; ?>">
@@ -278,7 +278,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 <div>&nbsp;</div>
 <? if(isset($data->login)) { ?>
 
-<a href="processbuy.php?type=8" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a><br>
+<a href="processbuy.php?type=8" class="payment_btn" style="width: 200px;">Paypal / Credit Card</a>
 <form  method="post" action="https://www.okpay.com/process.html">
     <input type="hidden" name="ok_receiver" value="likesplanet.com@gmail.com"/>
     <input type="hidden" name="ok_item_1_name" value="#140,000 Points to <? echo $data->login; ?>">
