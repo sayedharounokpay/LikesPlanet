@@ -26,7 +26,7 @@
 </form>
  */
 include('header.php');
-echo 'processing';
+
 
 function createTransaction($userid,$pnts,$cash){
     $result = mysql_query("SELECT * FROM users WHERE id={$userid}");
@@ -34,7 +34,7 @@ function createTransaction($userid,$pnts,$cash){
         $transrand = rand(1000,1500) * 0.3;
         $transdate = strtotime("now");
         $transactid = $transrand.$transdate.$userid;
-        mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid,vip) VALUES (now(),{$userid},{$points},{$cash},'{$transactid}',1)");
+        mysql_query("INSERT INTO transactions (date,userid,points,cash,transacid,vip) VALUES (now(),{$userid},{$pnts},{$cash},'{$transactid}',1)");
         return $transactid;
     }
     else {
@@ -49,6 +49,7 @@ if(isset($_GET['id'])) {
         if($pack = mysql_fetch_object($packs)){
             $name = $pack->name;
             $transactid=  createTransaction($id, $pack->coins, $pack->price);
+            echo $transactid;
         echo '<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
