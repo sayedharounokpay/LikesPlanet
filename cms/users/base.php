@@ -67,9 +67,18 @@ if(isset($_GET['action'])) {
     }
     else if($_GET['action'] == 'email-send-conf') {
         authenticate_page(1);
-        $searchparams=array('params'=>array(),'query'=>'');
+        $searchparams=array('params'=>array(),'query'=>'','conditionals'=>array('bought'=>false));
        
         $filtervals = array('filter_ban'=>'ban = 0','filter_paying'=>'bought > 0','filter_nonpaying'=>'bought = 0','filter_active'=>'online > NOW() - INTERVAL 30 DAY','filter_nonactive'=>'online < NOW() - INTERVAL 30 DAY','filter_activeweek'=>false,'filter_nonactiveweek'=>false);
+        
+        //Conditional Filtering
+        if(isset($_POST['filter_paying']) && isset($_POST['filter_nonpaying'])) {
+            $searchparams['params'][] = 'bought >= 0';
+            unset($_POST['filter_paying']);
+            unset($_POST['filter_nonpaying']);
+        }
+        
+        
         foreach($filtervals as $key=>$val){
             if(isset($_POST[$key])) {
                 $searchparams['params'][] = $val;
@@ -129,6 +138,10 @@ if(isset($_GET['action'])) {
         }
         //header('Location: ' . $_SERVER['HTTP_REFERER'] . '&result=success');
         echo '<script>document.location.href="'.$_SERVER['HTTP_REFERER'] . '&result=success";</script>';
+    }
+    
+    function searchConditionals($cond,$cond2) {
+        
     }
 }
 
