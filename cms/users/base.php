@@ -98,7 +98,7 @@ if(isset($_GET['action'])) {
         }
         var_dump($searchparams);
         $query = "SELECT DISTINCT email FROM users";
-        $query .= isset($searchparams['query']) ? $searchparams['query'] : '';
+        $query .= isset($searchparams['query']) ? ' '.$searchparams['query'] : '';
         echo '<br>Query: '.$query;
         /*
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
