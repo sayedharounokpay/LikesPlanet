@@ -115,10 +115,9 @@ if(isset($_GET['action'])) {
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
                 //echo '<br>Email Sent to: '.$row['email'];
-                if($progress != $prevnum){
+                
                 echo '<script>$(\'#emailprogress\').html("'.$progress.'%")</script>';
-                $prevnum = $progress;
-                }
+                
                 
             }
             echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
