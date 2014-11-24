@@ -44,7 +44,7 @@ if(isset($_GET['action'])) {
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="filter_nonactive" checked> Include Non-Active Customers (1 year)
+                <input type="checkbox" name="filter_nonactive" checked> Include Non-Active Customers
             </label>
         </div>
         <div class="checkbox">
@@ -57,11 +57,7 @@ if(isset($_GET['action'])) {
                 <input type="checkbox" name="filter_nonactiveweek"> Include Non-Active Customers only within 1 week
             </label>
         </div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="filter_nonactiveweek"> Include Non-Active Customers only within 1 week
-            </label>
-        </div>
+        
         
     </div>
     <input type="submit" class="btn btn-success btn-lg" value="Click to confirm email send"/>
@@ -71,6 +67,23 @@ if(isset($_GET['action'])) {
     }
     else if($_GET['action'] == 'email-send-conf') {
         authenticate_page(1);
+        $searchparams=array('params'=>array(),'query'=>'');
+       
+        $filtervals = array('filter_ban'=>'ban > 0','filter_paying'=>'bought > 0','filter_nonpaying'=>'bought = 0','filter_active'=>'online BETWEEN NOW() - INTERVAL 366 DAY AND NOW()','filter_nonactive'=>'online < NOW() - INTERVAL 366 DAY','filter_activeweek'=>false,'filter_nonactiveweek'=>false);
+        foreach($filterarr as $key=>$val){
+            if(isset($_POST[$key])) {
+                $searchparams['params'][] = $val;
+            }
+        }
+        
+        //Build query
+        for($i = 0; $i < count($searchparams['params']); $i++){
+            $searchparams['query'] .= ($i == 0) ? 'WHERE ':'';
+            $searchparams['query'] .= $searchparams['params'][$i].' ';
+            $searchparams['query'] .= ($i < count($searchparams['params'])-1) ? 'AND ' : '';
+        }
+        var_dump($searchparams);
+        /*
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
@@ -86,6 +99,8 @@ if(isset($_GET['action'])) {
         else {
             echo 'Failure. Error code 101';
         }
+         * 
+         */
     }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');
