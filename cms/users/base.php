@@ -114,7 +114,7 @@ if(isset($_GET['action'])) {
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
                 //echo '<br>Email Sent to: '.$row['email'];
                 if($progress%2 == 0) {
-                echo '<script>$(\'#emailprogress\').html("'.number_format($progress,2).'"%)</script>';
+                echo '<script>$(\'#emailprogress\').html("'.number_format($progress,2).'%")</script>';
                 }
             }
             echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
