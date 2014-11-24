@@ -108,7 +108,7 @@ if(isset($_GET['action'])) {
             set_time_limit($exectime);
             while($row = $result->fetch_assoc()) {
                 $currentcount++;
-                $progress = ($currentcount/$count) * 100;
+                $progress = (int) ($currentcount/$count) * 100;
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
