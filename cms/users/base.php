@@ -101,16 +101,16 @@ if(isset($_GET['action'])) {
         $query .= isset($searchparams['query']) ? ' '.$searchparams['query'] : '';
         echo '<br>Query: '.$query;
         
-        if($result = $db->query("SELECT DISTINCT email FROM users")) {
+        if($result = $db->query($query)) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
             set_time_limit($exectime);
-            while($row = $result->fetch_assoc()) {
+            //while($row = $result->fetch_assoc()) {
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
-                echo '<br>Email Sent to: '.$row['email'];
-            }
+                //echo '<br>Email Sent to: '.$row['email'];
+            //}
             echo 'Success!<br>';
             echo 'Email Sent to '.$count.' Unique Emails';
         }
