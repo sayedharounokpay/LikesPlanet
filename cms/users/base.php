@@ -100,15 +100,16 @@ if(isset($_GET['action'])) {
         $query = "SELECT DISTINCT email FROM users";
         $query .= isset($searchparams['query']) ? ' '.$searchparams['query'] : '';
         echo '<br>Query: '.$query;
-        /*
+        
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
             set_time_limit($exectime);
             while($row = $result->fetch_assoc) {
-                $message = $_POST['message'];
-                $subject = $_POST['subject'];
-                $emailMessage = new emailMess($row['email'], $message, $subject);
+                //$message = $_POST['message'];
+                //$subject = $_POST['subject'];
+                //$emailMessage = new emailMess($row['email'], $message, $subject);
+                echo '<br>Email Sent to: '.$row['email'];
             }
             echo 'Success!<br>';
             echo 'Email Sent to '.$count.' Unique Emails';
@@ -116,8 +117,7 @@ if(isset($_GET['action'])) {
         else {
             echo 'Failure. Error code 101';
         }
-         * 
-         */
+         
     }
     else if($_GET['action'] == "uoptions") {
         require_once('interface/user-options.php');
