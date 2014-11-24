@@ -108,16 +108,17 @@ if(isset($_GET['action'])) {
             set_time_limit($exectime);
             while($row = $result->fetch_assoc()) {
                 $currentcount++;
-                $progress = ($count/$currentcount) * 100;
+                $progress = ($currentcount/$count) * 100;
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
                 //echo '<br>Email Sent to: '.$row['email'];
                 if($progress%2 == 0) {
-                echo '<script>$(\'#emailprogress\').html("'.$progress.'")</script>';
+                echo '<script>$(\'#emailprogress\').html("'.$progress.'%")</script>';
                 }
             }
             echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
+            echo '<script>$(\'#emailstate\').html("Email Sending Process has been completed")</script>';
             echo 'Email Sent to '.$count.' Unique Emails';
         }
         else {
