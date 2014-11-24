@@ -96,22 +96,28 @@ if(isset($_GET['action'])) {
             $searchparams['query'] .= $searchparams['params'][$i].' ';
             $searchparams['query'] .= ($i < count($searchparams['params'])-1) ? 'AND ' : '';
         }
-        var_dump($searchparams);
+        //var_dump($searchparams);
         $query = "SELECT DISTINCT email FROM users";
         $query .= isset($searchparams['query']) ? ' '.$searchparams['query'] : '';
-        echo '<br>Query: '.$query;
-        
+        //echo '<br>Query: '.$query;
+        echo '<h2>Email Sending</h2><hr/>Email Sending Processing... <b style="color:red;" id="emailstate">Please do not close browser</b><br><div id="emailprogress"></div>';
         if($result = $db->query($query)) {
+            $currentcount=0;
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
             set_time_limit($exectime);
-            //while($row = $result->fetch_assoc()) {
+            while($row = $result->fetch_assoc()) {
+                $currentcount++;
+                $progress = ($count/$currentcount) * 100;
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
                 //echo '<br>Email Sent to: '.$row['email'];
-            //}
-            echo 'Success!<br>';
+                if($progress%2 == 0) {
+                echo '<script>$(\'#emailprogress\').html("'.$progress.'")</script>';
+                }
+            }
+            echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
             echo 'Email Sent to '.$count.' Unique Emails';
         }
         else {
