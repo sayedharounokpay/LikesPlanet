@@ -78,6 +78,11 @@ if(isset($_GET['action'])) {
             unset($_POST['filter_nonpaying']);
         }
         
+        if(isset($_POST['filter_active']) && isset($_POST['filter_nonactive'])){
+            unset($_POST['filter_active']);
+            unset($_POST['filter_nonactive']);
+        }
+        
         
         foreach($filtervals as $key=>$val){
             if(isset($_POST[$key])) {
@@ -92,6 +97,9 @@ if(isset($_GET['action'])) {
             $searchparams['query'] .= ($i < count($searchparams['params'])-1) ? 'AND ' : '';
         }
         var_dump($searchparams);
+        $query = "SELECT DISTINCT email FROM users";
+        $query .= isset($searchparams['query']) ? $searchparams['query'] : '';
+        echo '<br>Query: '.$query;
         /*
         if($result = $db->query("SELECT DISTINCT email FROM users")) {
             $count = $result->num_rows;
