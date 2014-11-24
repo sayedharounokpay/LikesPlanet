@@ -105,7 +105,7 @@ if(isset($_GET['action'])) {
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
             set_time_limit($exectime);
-            while($row = $result->fetch_assoc) {
+            while($row = $result->fetch_assoc()) {
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
