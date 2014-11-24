@@ -70,7 +70,7 @@ if(isset($_GET['action'])) {
         $searchparams=array('params'=>array(),'query'=>'');
        
         $filtervals = array('filter_ban'=>'ban > 0','filter_paying'=>'bought > 0','filter_nonpaying'=>'bought = 0','filter_active'=>'online BETWEEN NOW() - INTERVAL 366 DAY AND NOW()','filter_nonactive'=>'online < NOW() - INTERVAL 366 DAY','filter_activeweek'=>false,'filter_nonactiveweek'=>false);
-        foreach($filterarr as $key=>$val){
+        foreach($filtervals as $key=>$val){
             if(isset($_POST[$key])) {
                 $searchparams['params'][] = $val;
             }
