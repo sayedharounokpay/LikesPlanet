@@ -102,23 +102,20 @@ if(isset($_GET['action'])) {
         //echo '<br>Query: '.$query;
         echo '<h2>Email Sending</h2><hr/>Email Sending Processing... <b style="color:red;" id="emailstate">Please do not close browser</b><br><div id="emailprogress"></div>';
         if($result = $db->query($query)) {
-            $prevnum = 0;
             $currentcount=0;
             $count = $result->num_rows;
             $exectime = ($count * 0.5) * 100;
             set_time_limit($exectime);
             while($row = $result->fetch_assoc()) {
                 $currentcount++;
-                $progress = (int) ($currentcount/$count) * 100;
-                
+                $progress = ($currentcount/$count) * 100;
                 //$message = $_POST['message'];
                 //$subject = $_POST['subject'];
                 //$emailMessage = new emailMess($row['email'], $message, $subject);
                 //echo '<br>Email Sent to: '.$row['email'];
-                
-                echo '<script>$(\'#emailprogress\').html("'.$progress.'%")</script>';
-                
-                
+                if($progress%2 == 0) {
+                echo '<script>$(\'#emailprogress\').html("'.$progress.'")</script>';
+                }
             }
             echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
             echo '<script>$(\'#emailstate\').html("Email Sending Process has been completed")</script>';
