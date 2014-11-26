@@ -141,7 +141,12 @@ class dbTable {
         $offset=0;
         $limit=$this->limit;
         $where = "";
-        $wherecount = count($array);
+        $wherecount = 0;
+        foreach($array as $val){
+            if(strlen($val) > 0) {
+                $wherecount++;
+            }
+        }
         
         if($page > 0) {
             $offset = $limit*$page;
