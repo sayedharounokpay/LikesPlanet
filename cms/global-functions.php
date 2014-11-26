@@ -148,6 +148,8 @@ class dbTable {
                 $wherecount++;
             }
         }
+        echo 'WhereCount: '.$wherecount;
+        echo 'Wheres: '.$wheres;
         
         if($page > 0) {
             $offset = $limit*$page;
