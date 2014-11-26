@@ -141,7 +141,7 @@ class dbTable {
         $offset=0;
         $limit=$this->limit;
         $where = "";
-        $wherecount = 0;
+        $wherecount = 1;
         $wheres=1;
         foreach($array as $val){
             if(strlen($val) > 0) {
@@ -259,7 +259,7 @@ class dbTable {
             }
         }
         else {
-            echo '<div class="row" style="display:block;margin-top:15px;margin-bottom:15px;font-weight:bold;background-color:#f2f2f2;padding:15px;">Invalid query: '.$query.'</div>';
+            echo '</tbody></table></form><div class="row" style="display:block;margin-top:15px;margin-bottom:15px;font-weight:bold;background-color:#f2f2f2;padding:15px;">Invalid query: '.$query.'</div>';
             var_dump($_SESSION['searchparam']);
         }
         echo '</tbody></table>';
