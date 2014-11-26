@@ -256,7 +256,7 @@ class dbTable {
         }
         else {
             echo '<br>Invalid query: '.$query;
-            var_dump($_SESSION['searchparam'])
+            var_dump($_SESSION['searchparam']);
         }
         echo '</tbody></table>';
     }
