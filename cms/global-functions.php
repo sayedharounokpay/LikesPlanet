@@ -185,9 +185,20 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
+                    echo '<br>'.$key.'<br>';
                     if($wherecount > 1 && $wheres < $wherecount && $is_blank == FALSE) {
-                        
                         $where .= "AND";
+                    }
+                    if($wherecount > 1){
+                        echo 'First Pass';
+                    }
+                    if($wheres < $wherecount) {
+                        echo ' Second Pass';
+                        echo ' '.$wheres.' ';
+                        echo $wherecount;
+                    }
+                    if($is_blank == FALSE){
+                        echo ' Third Pass';
                     }
                     $wheres++;
                     
