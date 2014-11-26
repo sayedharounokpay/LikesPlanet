@@ -121,7 +121,9 @@ class dbTable {
             }
             foreach($search as $key => $val) {
                     $value = (isset($_POST[$key])) ? $_POST[$key] : '';
-                    $value = (isset($userarr[$key])) ? $userarr[$key] : '';
+                    if(!isset($_POST[$key])) $value = (isset($userarr[$key])) ? $userarr[$key] : '';
+                    
+                    
                     echo '<div class="form-group col-sm-4" style="">'
                     . '<label for="" class="control-label col-sm-4">'.$val.'</label><div class="col-sm-8"><input style="" id="'.$key.'" type="text" name="'.$key.'" value="'.$value.'" class=" form-control"/></div>'
                             . '</div>';

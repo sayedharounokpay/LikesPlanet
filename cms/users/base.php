@@ -100,7 +100,7 @@ if(isset($_GET['action'])) {
         $query = "SELECT DISTINCT email FROM users";
         $query .= isset($searchparams['query']) ? ' '.$searchparams['query'] : '';
         //echo '<br>Query: '.$query;
-        echo '<h2>Email Sending</h2><hr/>Email Sending Processing... <b style="color:red;" id="emailstate">Please do not close browser</b><br><div id="emailprogress"></div>';
+        echo '<h2>Email Sending</h2><hr/><b style="color:red;" id="emailstate">PROCESSING: Please do not close browser</b><br><div id="emailprogress"></div>';
         if($result = $db->query($query)) {
             $currentcount=0;
             $count = $result->num_rows;
@@ -118,7 +118,7 @@ if(isset($_GET['action'])) {
                 }
             }
             echo '<script>$(\'#emailstate\').css(\'color\',\'green\')</script>';
-            echo '<script>$(\'#emailstate\').html("Email Sending Process has been completed")</script>';
+            echo '<script>$(\'#emailstate\').html("COMPLETED: Email Sending Process has been completed")</script>';
             echo 'Email Sent to '.$count.' Unique Emails';
         }
         else {
