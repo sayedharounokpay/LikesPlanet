@@ -142,7 +142,7 @@ class dbTable {
         $limit=$this->limit;
         $where = "";
         $wherecount = 0;
-        $wheres=0;
+        $wheres=1;
         foreach($array as $val){
             if(strlen($val) > 0) {
                 $wherecount++;
