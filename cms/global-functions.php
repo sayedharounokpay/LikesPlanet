@@ -141,8 +141,8 @@ class dbTable {
         $offset=0;
         $limit=$this->limit;
         $where = "";
-        $wherecount = 1;
-        $wheres=1;
+        $wherecount = 0;
+        $wheres=0;
         foreach($array as $val){
             if(strlen($val) > 0) {
                 $wherecount++;
@@ -187,7 +187,10 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
-                    
+                    if($wherecount > 1 && $wheres < $wherecount && $is_blank == FALSE) {
+-                        
+                         $where .= "AND";
+                     }
                     $wheres++;
                     
                 }
