@@ -142,7 +142,7 @@ class dbTable {
         $limit=$this->limit;
         $where = "";
         $wherecount = 0;
-        $wheres=0;
+        $wheres=1;
         foreach($array as $val){
             if(strlen($val) > 0) {
                 $wherecount++;
@@ -185,21 +185,7 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
-                    echo '<br>'.$key.'<br>';
-                    if($wherecount > 1 && $wheres < $wherecount && $is_blank == FALSE) {
-                        $where .= "AND";
-                    }
-                    if($wherecount > 1){
-                        echo 'First Pass';
-                    }
-                    if($wheres < $wherecount) {
-                        echo ' Second Pass';
-                        echo ' '.$wheres.' ';
-                        echo $wherecount;
-                    }
-                    if($is_blank == FALSE){
-                        echo ' Third Pass';
-                    }
+                    
                     $wheres++;
                     
                 }
@@ -273,7 +259,7 @@ class dbTable {
             }
         }
         else {
-            echo '<br>Invalid query: '.$query;
+            echo '<div class="row" style="display:block;margin-top:15px;margin-bottom:15px;font-weight:bold;background-color:#f2f2f2;padding:15px;">Invalid query: '.$query.'</div>';
             var_dump($_SESSION['searchparam']);
         }
         echo '</tbody></table>';
