@@ -141,12 +141,8 @@ class dbTable {
         $offset=0;
         $limit=$this->limit;
         $where = "";
-        $wherecount = 0;
-        foreach($array as $key=>$val) {
-            if(strlen($val) > 0){
-                $wherecount++;
-            }
-        }
+        $wherecount = count($array);
+        
         if($page > 0) {
             $offset = $limit*$page;
             $limit = $offset+$this->limit;
@@ -260,6 +256,7 @@ class dbTable {
         }
         else {
             echo '<br>Invalid query: '.$query;
+            var_dump($_SESSION['searchparam'])
         }
         echo '</tbody></table>';
     }
