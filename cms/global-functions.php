@@ -142,6 +142,7 @@ class dbTable {
         $limit=$this->limit;
         $where = "";
         $wherecount = 0;
+        $wheres=0;
         foreach($array as $val){
             if(strlen($val) > 0) {
                 $wherecount++;
@@ -158,6 +159,7 @@ class dbTable {
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
+                    
                     $is_blank=FALSE;
                     if(strpos($key,'_greaterrange')){
                         $key = str_replace('_greaterrange', '', $key);
@@ -183,7 +185,7 @@ class dbTable {
                         if(! $is_blank)
                         $where .= " $key $searchparam= '$val' ";
                     }
-                    if($wherecount > 1 && $wheres < $wherecount && $is_blank != true ) {
+                    if($wherecount > 1 && $wheres < $wherecount && $is_blank == FALSE) {
                         
                         $where .= "AND";
                     }
