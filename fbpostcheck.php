@@ -48,7 +48,7 @@ mysql_query("UPDATE `post` SET `points`=`points`-'{$site11->cpc}', `likes`=`like
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$site11->cpc}'-1, `hitstoday`=`hitstoday`+1, `likes`=`likes`+'1' WHERE `id`='{$data->id}'");
 $updatecpc = $site11->cpc-1;
-mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log,page) VALUES ({$data->id},NOW(),{$updatecpc},1,'Coins Added From Facebook Photo Like |','fbpostcheck.php')");
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,fb_like,log,page) VALUES ({$data->id},NOW(),{$updatecpc},1,'Coins Added From Facebook Photo Like | {$site11->title}','fbpostcheck.php')");
 
 if( $data->ref2 >= 1 ){
 mysql_query("UPDATE `users` SET `refgive`=`refgive`+'{$site11->cpc}'-1, `totalgive`=`totalgive`+'{$site11->cpc}'-1 WHERE `id`='{$data->id}'");
