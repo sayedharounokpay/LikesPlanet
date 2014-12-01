@@ -6,7 +6,18 @@ $site2 = mysql_query("SELECT * FROM `users` WHERE `login`='{$_POST["title1"]}'")
 $userr = mysql_fetch_object($site2);
 
 mysql_query("UPDATE `users` SET `coins`=`coins`+'{$_POST["title2"]}', `pr`=`pr`+'{$_POST["title3"]}', `bought`= '1' WHERE `id`='{$userr->id}'");
-mysql_query("INSERT INTO statistics (user_id,date,coins_gained,payment,log,page) VALUES ({$data->id},NOW(),{$coinsadded},1,'<b style=\"color:green;\">Bought Points (added manually)</b>','kyr360.php')");
+$coinsadded = 0;
+if(isset($_POST['title2'])){
+    if($_POST['title2'] >= 1) {
+        $coinsadded = $_POST['title2'];
+    }
+}
+if(isset($_POST['title3'])){
+    if($_POST['title3'] >= 1) {
+        $coinsadded = $_POST['title3'];
+    }
+}
+mysql_query("INSERT INTO statistics (user_id,date,coins_gained,payment,log,page) VALUES ({$userr->id},NOW(),{$coinsadded},1,'<b style=\"color:green;\">Bought Points (added manually)</b>','kyr360.php')");
 mysql_query("INSERT INTO `orders` (user_id, points, date, price) VALUES('{$userr->id}', '{$_POST["title4"]}', NOW(), '{$_POST["title5"]}' ) ");
 
 if ($_POST["title4"] > 0) {
