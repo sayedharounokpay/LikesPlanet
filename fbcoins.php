@@ -16,11 +16,29 @@ else if($_POST['coins'] < 1){$message = "Please enter an valid number!"; $messag
 else if(!is_numeric($_POST['coins'])){$message = "Please enter an valid number!"; $message2 = 1;}
 else if($page->id < 1){$message = "ERROR: Do not steal points!"; $message2 = 1;}
 else{
-mysql_query("UPDATE `facebook` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
-mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
-mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Personal Facebook Page: {$id}','fbcoins.php')");
+    $validify=2;
+    if($result = mysql_query("SELECT id FROM facebook WHERE id='{$page->id}'")) {
+        $rows = mysql_num_rows($result);
+        if($rows >= 1)
+        {
+            $validify=1;
+        }
+        else {
+            $message = "ERROR: Do not steal points";
+            $message2=1;
+        }
+    }
+    else {
+        $message = "ERROR: Database Offline.";
+        $message2=1;
+    }
+    if($validify==1){
+    mysql_query("UPDATE `facebook` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
+    mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
+    mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,fb_like,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Personal Facebook Page: {$id}','fbcoins.php')");
 
-$message = "Points added with success!"; $message2 = 2;
+    $message = "Points added with success!"; $message2 = 2;
+    }
 }}
 ?>
 <body> 
