@@ -9,7 +9,6 @@ foreach($_GET as $key => $value) {
 }
 $id = $get['id'];
 $page = mysql_fetch_object(mysql_query("SELECT * FROM `facebook` WHERE `id`='{$id}' AND `user`='{$data->id}'"));
-echo '<!--PAGEINFO '.var_dump($page).' -->';
 if(isset($_POST['add'])){
 if($_POST['coins'] > $data->coins){$message = "You do Not have enough points on balance!"; $message2 = 1;}
 else if($_POST['coins'] < 19) {$message = "You should add 20 Points at least!"; $message2 = 1;}
