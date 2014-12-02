@@ -18,6 +18,26 @@ else if($_POST['mana'] < 0){$message = "ERROR: Please enter an valid number! min
 else if(!is_numeric($_POST['coins'])){$message = "ERROR: Please enter an valid number!"; $message2 = 1;}
 else if(!is_numeric($_POST['mana'])){$message = "ERROR: Please enter an valid number!"; $message2 = 1;}
 else{
+    $validify=2;
+    if($result = mysql_query("SELECT id FROM alexagoogle WHERE id='{$page->id}'")) {
+        $rows = mysql_num_rows($result);
+        if($rows >= 1)
+        {
+            $validify=1;
+        }
+        else {
+            $message = "ERROR: Do not steal points";
+            $message2=1;
+        }
+    }
+    else {
+        $message = "ERROR: Database Offline.";
+        $message2=1;
+    }
+    if($page->id < 1){
+        $validify = 2;
+    }
+    if($validify == 1){
 mysql_query("UPDATE `alexagoogle` SET `points`=`points`+'{$protect['coins']}'*10 WHERE ( `id`='{$id}' AND `user`='{$data->id}' ) ");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
 
@@ -25,6 +45,7 @@ mysql_query("UPDATE `alexagoogle` SET `points`=`points`+'{$protect['mana']}' WHE
 mysql_query("UPDATE `users` SET `mana`=`mana`-'{$protect['mana']}' WHERE `id`='{$data->id}'");
 
 $message = "Points/Mana added with success!"; $message2 = 2;
+    }
 }}
 ?>
 <body id="tab1"> 

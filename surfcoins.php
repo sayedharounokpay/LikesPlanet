@@ -15,9 +15,30 @@ if($_POST['coins'] > $data->coins){$message = "ERROR: You don't have enough coin
 else if($_POST['coins'] < 1){$message = "ERROR: Please enter an valid number!"; $message2 = 1;}
 else if(!is_numeric($_POST['coins'])){$message = "ERROR: Please enter an valid number!"; $message2 = 1;}
 else{
+    $validify=2;
+    if($result = mysql_query("SELECT id FROM surf WHERE id='{$page->id}'")) {
+        $rows = mysql_num_rows($result);
+        if($rows >= 1)
+        {
+            $validify=1;
+        }
+        else {
+            $message = "ERROR: Do not steal points";
+            $message2=1;
+        }
+    }
+    else {
+        $message = "ERROR: Database Offline.";
+        $message2=1;
+    }
+    if($page->id < 1){
+        $validify = 2;
+    }
+    if($validify == 1){
 mysql_query("UPDATE `surf` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
 $message = "Coins added with success!"; $message2 = 2;
+    }
 }}
 ?>
 <body> 

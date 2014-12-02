@@ -32,6 +32,9 @@ else{
         $message = "ERROR: Database Offline.";
         $message2=1;
     }
+    if(strlen($page->id) <= 1){
+        $validify = 2;
+    }
     if($validify==1){
     mysql_query("UPDATE `facebook` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
     mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");

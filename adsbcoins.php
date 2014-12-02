@@ -16,7 +16,26 @@ else if($_POST['coins'] < 1){$msg = "<div class=\"msg_error\">ERROR: You don't h
 else if(!is_numeric($_POST['coins'])){$message = "Invalid number!"; $message2 = 1;}
 
 else{
-
+$validify=2;
+    if($result = mysql_query("SELECT id FROM adsb WHERE id='{$page->id}'")) {
+        $rows = mysql_num_rows($result);
+        if($rows >= 1)
+        {
+            $validify=1;
+        }
+        else {
+            $message = "ERROR: Do not steal points";
+            $message2=1;
+        }
+    }
+    else {
+        $message = "ERROR: Database Offline.";
+        $message2=1;
+    }
+    if($page->id < 1){
+        $validify = 2;
+    }
+    if($validify == 1){
 if ($page->isclicks == '0') {
 	if ($data->pr > 0) {
 	mysql_query("UPDATE `adsb` SET `points`=`points`+'{$protect['coins']}'*40 WHERE `id`='{$id}'"); }
@@ -32,7 +51,7 @@ if ($page->isclicks == '1') {
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
 mysql_query("INSERT INTO statistics (user_id,date,coins_deducted,ads,log,page) VALUES ({$data->id},NOW(),{$protect['coins']},1,'Points Added To Instagram Photo Likes: {$site->id}','adsbcoins.php')");
 $msg = "<div class=\"msg_success\">Credits added with Success!</div>";
-
+    }
 }
 
 }
