@@ -341,7 +341,7 @@ echo "<center><font color='red' size=4><b> Please LOGIN First Before Buying.</b>
 		</tr>
         </thead>	
 <?
-  $site2 = mysql_query("SELECT * FROM `fakeorders` ORDER BY `id` DESC LIMIT 0, 25");
+  $site2 = mysql_query("SELECT * FROM `orders` ORDER BY `id` DESC LIMIT 0, 25");
   for($j=1; $userp = mysql_fetch_object($site2); $j++)
 {
 
