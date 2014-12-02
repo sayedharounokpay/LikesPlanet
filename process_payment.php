@@ -26,7 +26,7 @@ if(isset($_GET['transactid'])) {
                         mysql_query("UPDATE `users` SET `coins`=`coins`+'{$final_pnts}', `bought`= '1' WHERE `id`='{$transaction->userid}'");
                         mysql_query("UPDATE transactions SET valid=1 WHERE transacid='".$_GET['transactid']."'");
                         mysql_query("INSERT INTO statistics (user_id,date,coins_gained,payment,log,page) VALUES ({$transaction->userid},NOW(),{$final_pnts},1,'<b style=\"color:green;\">Bought Points (Paypal)</b>','process_payment.php')");
-                        mysql_query("INSERT INTO `orders` (user_id, points, date, price) VALUES('{$transaction->userid}', '{$final_pnts}', NOW(), '{$final_cash}' ) ");
+                        mysql_query("INSERT INTO `orders` (user_id, points, date, price) VALUES ('{$transaction->userid}',{$final_pnts},NOW(),{$final_cash}) ");
                     }
                     else {
                         mysql_query("UPDATE transactions SET valid=-1 WHERE id=".$transaction->id);
