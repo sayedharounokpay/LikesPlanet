@@ -23,7 +23,7 @@ else {
         $user_id = $data->id;
         $type = $_GET['type'];
         if($type == 1){
-            createTransaction($user_id, 100000, 50);
+            $transactid=createTransaction($user_id, 100000, 50);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                     <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
@@ -46,7 +46,7 @@ else {
         }
         
         else if($type == 2) {
-            createTransaction($user_id, 225000, 100);
+            $transactid=createTransaction($user_id, 225000, 100);
             echo '<form id="formPaypal" action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_xclick">
 <input type="hidden" name="business" value="likesplanet.com@gmail.com">
