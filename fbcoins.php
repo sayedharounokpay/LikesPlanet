@@ -14,7 +14,7 @@ if($_POST['coins'] > $data->coins){$message = "You do Not have enough points on 
 else if($_POST['coins'] < 19) {$message = "You should add 20 Points at least!"; $message2 = 1;}
 else if($_POST['coins'] < 1){$message = "Please enter an valid number!"; $message2 = 1;}
 else if(!is_numeric($_POST['coins'])){$message = "Please enter an valid number!"; $message2 = 1;}
-else if($page->id < 1){$message = "ERROR: Do not steal points!"; $message2 = 1;}
+
 else{
     $validify=2;
     if($result = mysql_query("SELECT id FROM facebook WHERE id='{$page->id}'")) {
