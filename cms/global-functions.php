@@ -236,9 +236,9 @@ class dbTable {
                 $offset = $returnarr['offset'];
             }
         
-        $query = "SELECT * FROM ".$this->table." LIMIT $offset,{$this->limit} ORDER BY id {$this->order}";
+        $query = "SELECT * FROM ".$this->table." ORDER BY id {$this->order} LIMIT $offset,{$this->limit}";
         if(strlen($where) > 5) {
-            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,{$this->limit} ORDER BY id {$this->order}";
+            $query = "SELECT * FROM ".$this->table." ORDER BY id {$this->order} WHERE $where LIMIT $offset,{$this->limit}";
         }
        
       
