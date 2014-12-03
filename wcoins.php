@@ -15,7 +15,7 @@ if($_POST['coins'] > $data->coins){$msg = "<div class=\"msg_error\">ERROR: You d
 else if($_POST['coins'] < 1){$msg = "<div class=\"msg_error\">ERROR: Please enter an valid number!</div>";}
 else if(!is_numeric($_POST['coins'])){$msg = "<div class=\"msg_error\">ERROR: Please enter an valid number!</div>";}
 else{
-    
+    echo 'ID: '.$id;
     $validify=2;
     if($result = mysql_query("SELECT id FROM website WHERE ii='{$page->ii}'")) {
         $rows = mysql_num_rows($result);
@@ -36,7 +36,7 @@ else{
         $validify = 2;
     }
     if($validify == 1){
-mysql_query("UPDATE `website` SET `points`=`points`+'{$protect['coins']}' WHERE `id`='{$id}'");
+mysql_query("UPDATE `website` SET `points`=`points`+'{$protect['coins']}' WHERE `ii`='{$page->ii}'");
 mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
 $msg = "<div class=\"msg_success\">Coins added with success!</div>";
     }
