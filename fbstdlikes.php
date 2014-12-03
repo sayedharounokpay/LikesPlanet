@@ -151,7 +151,6 @@ $mobilelink = str_replace('m.m.facebook', 'm.facebook', $mobilelink );
 </center>
 </div>
 <?}?>
-
 <script type="text/javascript">
 var mywindow;
 var waittoconfirm = 0;
