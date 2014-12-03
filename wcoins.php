@@ -17,7 +17,7 @@ else if(!is_numeric($_POST['coins'])){$msg = "<div class=\"msg_error\">ERROR: Pl
 else{
     
     $validify=2;
-    if($result = mysql_query("SELECT id FROM website WHERE ii='{$page->id}'")) {
+    if($result = mysql_query("SELECT id FROM website WHERE ii='{$page->ii}'")) {
         $rows = mysql_num_rows($result);
         if($rows >= 1)
         {
