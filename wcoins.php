@@ -15,6 +15,7 @@ if($_POST['coins'] > $data->coins){$msg = "<div class=\"msg_error\">ERROR: You d
 else if($_POST['coins'] < 1){$msg = "<div class=\"msg_error\">ERROR: Please enter an valid number!</div>";}
 else if(!is_numeric($_POST['coins'])){$msg = "<div class=\"msg_error\">ERROR: Please enter an valid number!</div>";}
 else{
+    echo $msg = "<div class=\"msg_error\">Warning: Points possibly not added.</div>";
     $validify=2;
     if($result = mysql_query("SELECT id FROM website WHERE id='{$page->id}'")) {
         $rows = mysql_num_rows($result);
