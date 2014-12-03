@@ -98,7 +98,7 @@ class dbTable {
         $this->user_options = $user_options;
         $this->checkbox_arr = $checkbox_arr;
         $this->last_col = $last_col;
-        if($order) {
+        if(!$order) {
             $this->order = 'ASC';
         }
         else {
