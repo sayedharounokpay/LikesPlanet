@@ -36,8 +36,8 @@ else{
         $validify = 2;
     }
     if($validify == 1){
-mysql_query("UPDATE `website` SET `points`=`points`+'{$protect['coins']}' WHERE `ii`='{$page->ii}'");
-mysql_query("UPDATE `users` SET `coins`=`coins`-'{$protect['coins']}' WHERE `id`='{$data->id}'");
+mysql_query("UPDATE `website` SET `points`=`points`+'{$_POST['coins']}' WHERE `id`='{$id}'");
+mysql_query("UPDATE `users` SET `coins`=`coins`-'{$_POST['coins']}' WHERE `id`='{$data->id}'");
 $msg = "<div class=\"msg_success\">Coins added with success!</div>";
     }
 }}
