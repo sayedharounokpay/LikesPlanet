@@ -186,9 +186,9 @@ function numberWithCommas(x) {
 </head>
 <body>
     
-<!--<div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
-<span style="color:red">Notification:</span> This Nov 22, 2014 there will be a system enhancement that will take place to further increase stability, performance, and security of our website. During 1:00 AM - 3:00 AM (EST) the website will be offline. We hope to serve you better and would like to thank you in advance for your patience.
-</div>-->
+<div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
+<span style="color:red">Notification:</span> On November 4, 2014 12:00 A.M - 3:00 AM (EST), There will be a security enhancement on the site to further increase the security and performance of the system. The site might be down for you during these times. We thank you for your patience and understanding. <br/> Best Regards, The LikesPlanet Team
+</div>
 
 	    <div class="headerContainer">
 		<div class="headerInner">
