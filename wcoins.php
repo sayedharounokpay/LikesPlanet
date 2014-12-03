@@ -31,7 +31,7 @@ else{
         $msg = "ERROR: Database Offline.";
         $message2=1;
     }
-    if($page->id < 1){
+    if($page->ii < 1){
         $validify = 2;
     }
     if($validify == 1){
