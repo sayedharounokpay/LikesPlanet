@@ -88,9 +88,9 @@ class dbTable {
      * @param user_options Array to display what types of options the administrator has
      * @param last_col An option to add code to the last Columns
      * @param checkbox_arr An Option to add a checkbox to the table
-     * @param order 'ASC' Or 'DESC'
+     * @param order Deaults to Desc. Set to FALSE to set to Asc
      */
-    public function __construct($table,$cols,$limit,$pagenum=1,$user_options=array(),$last_col="",$checkbox_arr=array(),$order="") {
+    public function __construct($table,$cols,$limit,$pagenum=1,$user_options=array(),$last_col="",$checkbox_arr=array(),$order=TRUE) {
         $pagenum--;
         $this->pagenum = $pagenum;
         $this->limit = $limit;
@@ -98,7 +98,12 @@ class dbTable {
         $this->user_options = $user_options;
         $this->checkbox_arr = $checkbox_arr;
         $this->last_col = $last_col;
-        $this->order = $order;
+        if($order) {
+            $this->order = 'ASC';
+        }
+        else {
+            $this->order = "DESC";
+        }
         foreach($cols as $key=>$val){
            $this->cols[$key] = $val;
         }
@@ -231,9 +236,9 @@ class dbTable {
                 $offset = $returnarr['offset'];
             }
         
-        $query = "SELECT * FROM ".$this->table." LIMIT $offset,$limit";
+        $query = "SELECT * FROM ".$this->table." LIMIT $offset,{$this->limit} ORDER BY id {$this->order}";
         if(strlen($where) > 5) {
-            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,$limit";
+            $query = "SELECT * FROM ".$this->table." WHERE $where LIMIT $offset,{$this->limit} ORDER BY id {$this->order}";
         }
        
       
