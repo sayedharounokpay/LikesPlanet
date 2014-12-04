@@ -1,26 +1,4 @@
-<script>
-    function get_user_id() {
-        
-        var userlogin = $('#userlogin').val();
-        var url_type = '<?=$baselocation;?>/ajax-functions.php';
-        $.ajax({
-            type: "GET",
-            url: url_type,
-            data: { function: "get_user_id_from_login", userlogin: userlogin },
-            success: function(data) {
-                $('#useridfetchclose').click();
-               
-                if(isNaN(data)) alert(data);
-                else{  
-                    $('#user_id').val(data); 
-                    
-                    }
-            }
-            
-        });
-        
-    }
-</script>
+
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success btn-small" data-toggle="modal" data-target="#userModal">

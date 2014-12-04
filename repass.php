@@ -1,4 +1,5 @@
 <?php
+$securityphp=TRUE;
 $page_title = "I forgot password - LikesPlanet.com";
 
 include('header.php');

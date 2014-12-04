@@ -1,4 +1,5 @@
 <?php
+$securityphp=TRUE;
 include('header.php');
 $message ="";
 

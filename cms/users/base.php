@@ -9,6 +9,10 @@ if(isset($_GET['action'])) {
     if($_GET['action'] == 'edit-logon-avab') {
         require_once('interface/user-list.php');
     }
+    else if($_GET['action'] == 'add-points') {
+        authenticate_page(1);
+        require_once('interface/user-points');
+    }
     else if($_GET['action'] == "send-email") {
         authenticate_page(1);
         require_once('interface/send-email.php');

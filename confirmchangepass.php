@@ -1,5 +1,5 @@
 <?php
-
+$securityphp=TRUE;
 $message = "";
 include('config.php');
 error_reporting(E_ALL);
@@ -14,6 +14,7 @@ if(isset($_POST['requestid'])) {
                         $newpass = md5($_POST['pass']);
                         mysql_query("UPDATE users SET pass='{$newpass}' WHERE login='{$userid}' ");
                         $message = "Password Has successfully Been changed. Please proceed to <a href=\"http://www.likesplanet.com/login.php\">Login</a>";
+                        mysql_query("UPDATE users SET pass_reset=1 WHERE login='{$userid}'");
                     }
                     else {
                         $message = "Passwords do not match.";

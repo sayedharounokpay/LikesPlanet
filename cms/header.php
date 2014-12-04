@@ -8,21 +8,7 @@ if(session_id() == '' || !isset($_SESSION)) {
 <html>
     <head>
         <?php
-$baselocation = "http://www.likesplanet.com/cms";
-
-if(isset($_SESSION['admin_state_login'])) {
-    if($_SESSION['admin_state_login'] == true) {
-        
-    }
-    else {
-        
-        //header('Location: login.php');
-        echo '<script>document.location.href="'.$baselocation.'/login.php"</script>';
-    }
-}
-else {
-    echo '<script>document.location.href="'.$baselocation.'/login.php"</script>';
-}
+        require_once('functions.php');
 ?>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="<?=$baselocation?>/css/bootstrap.min.css">
@@ -54,7 +40,9 @@ else {
               <ul class="dropdown-menu" role="menu">
                 <li><a href="<?=$baselocation?>/users/base.php?action=edit-logon-avab">Edit User Logon Availability</a></li>
                 <li><a href="<?=$baselocation?>/users/base.php?action=send-email">Send Mass email</a></li>
-                
+                <?php if(check_admin()):?>
+                <li><a href="<?=$baselocation;?>/users/base.php?action=add-points">Add Points</a></li>
+                <?php endif;?>
               </ul>
             </li>
           </ul>
