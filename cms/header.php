@@ -1,4 +1,8 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+error_reporting(2);
 if(session_id() == '' || !isset($_SESSION)) {
     // session isn't started
     session_start();
@@ -9,7 +13,7 @@ if(session_id() == '' || !isset($_SESSION)) {
     <head>
         <?php
         require_once('conn.php');
-
+        
     if(isset($_SESSION['admin_state_login'])) {
     if($_SESSION['admin_state_login'] == true) {
         // Logged
