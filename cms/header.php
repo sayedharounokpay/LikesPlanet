@@ -8,9 +8,9 @@ if(session_id() == '' || !isset($_SESSION)) {
 <html>
     <head>
         <?php
-        $baselocation = "http://www.likesplanet.com/cms";
+        require_once('conn.php');
 
-if(isset($_SESSION['admin_state_login'])) {
+    if(isset($_SESSION['admin_state_login'])) {
     if($_SESSION['admin_state_login'] == true) {
         // Logged
     }
