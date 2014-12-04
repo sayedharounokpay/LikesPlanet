@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "likespla_liker";
-$pass = "eaK}WdQ@q#~D";
+$user = "root";
+$pass = "";
 $db = "likespla_ankur625";
 
 $db = mysqli_connect($host, $user, $pass, $db) or die("Error " . mysqli_error($link));
