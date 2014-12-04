@@ -1,6 +1,12 @@
 <?php
 require_once('conn.php');
 
+error_reporting(E_ALL);
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
+
     $result = FALSE;
     $err = "undefined";
 if(isset($_POST['admin_username'])) {
