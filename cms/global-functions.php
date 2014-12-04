@@ -165,7 +165,7 @@ class dbTable {
                     $searchparam = "";
                     $greaterrange =0;
                     $lesserrange  =0;
-                    
+                    $blank=0;
                     $is_blank=FALSE;
                     if(strpos($key,'_greaterrange')){
                         $key = str_replace('_greaterrange', '', $key);

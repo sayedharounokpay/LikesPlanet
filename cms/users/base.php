@@ -1,7 +1,7 @@
 <?php
 require_once ('../header.php');
 require_once ('functions.php');
-require_once ('../conn.php');
+include ('../conn.php');
 require_once ('../global-functions.php');
 // Base File. To control everything
 
@@ -15,26 +15,47 @@ if(isset($_GET['action'])) {
     }
     else if($_GET['action'] == 'add-points-exec') {
         authenticate_page(1);
+        global $db;
         echo '<div class="row"> <div class="col-lg-12">
         <div class="row"><h1>Status</h1>
         <hr/>';
+        if(isset($_POST['conf'])){
+            $query = "SELECT * FROM users WHERE login='admin'";
+            if($result = $db->query($query)){
+                if($useradmin = $result->fetch_object()){
+                    if(md5($_POST['conf']) == $useradmin->pass){
+                       
+                    }
+                    else {
+                        echo '<h1>UNABLE TO CONTINUE. ERROR</h1>';
+                        die();
+                    }
+                }
+            }
+        }
         if(isset($_POST['login'])){
-            echo $_POST['login'];
-            $query = "SELECT * FROM `users` WHERE login=`{$_POST['login']}`";
-            echo $query;
-            $results = mysql_query($query);
-            if($userr = mysql_fetch_object($results)){
-                mysql_query("UPDATE users SET coins=coins+{$_POST['points']} WHERE id={$userr->id}");
-                mysql_query("INSERT INTO statistics (user_id,date,coins_gained,admin,log,page) VALUES ({$userr->id},NOW(),{$_POST['points']},1,'<b style=\"color:yellow;\">Points Added From Administrator</b>','users-interface-add-points-exec')");
-                $message = '<p>Points added to: '.$userr->login.'</p>';
+            $login = $_POST['login'];
+            $query = "SELECT * FROM users WHERE login='{$login}'";
+            
+            if($results = $db->query($query)){
+            if($userr = $results->fetch_assoc() ){
+                $db->query("UPDATE users SET coins=coins+{$_POST['points']} WHERE id={$userr['id']}");
+                $db->query("INSERT INTO statistics (user_id,date,coins_gained,admin,log,page) VALUES ({$userr['id']},NOW(),{$_POST['points']},1,'<b style=\"color:orange;\">Points Added From Administrator</b>','users-interface-add-points-exec')");
+                $message = '<h1><b style="color:green">'.$_POST['points'].'</b> Points added to: '.$userr['login'].'</h1>';
             }
             else {
                 $message = "<p>Points Not added. User not found.</p>";
             }
             
+            }
+            else {
+                $message = '<p>Undefined Error</p>';
+                echo mysqli_error($db);
+            }
         }
         else {
             $message = "<p>Please fill up the form before proceeding</p>";
+            echo mysqli_errno($db);
         }
         echo $message;
         echo '</div> </div> </div>';
