@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
         <?php
         header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 ?>
+<!DOCTYPE html>
+<html>
+    <head>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <!-- Latest compiled and minified JavaScript -->
