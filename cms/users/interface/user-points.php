@@ -5,10 +5,10 @@
 <div class="row">
 <form class="form-horizontal" action="<?=$baselocation?>/users/base.php?action=add-points-exec" method="POST">
     <div class="form-group">
-        <input type="text" class="form-control" name="login" placeholder="User Login"/>
+        <input type="text" class="form-control" name="login" placeholder="User Login" required=""/>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="points" placeholder="Points To Add"/>
+        <input type="text" class="form-control" name="points" placeholder="Points To Add" required=""/>
     </div>
     
     <input type="submit" class="btn btn-lg btn-default pull-right" value="Submit"/>

@@ -11,7 +11,33 @@ if(isset($_GET['action'])) {
     }
     else if($_GET['action'] == 'add-points') {
         authenticate_page(1);
-        require_once('interface/user-points');
+        require_once('interface/user-points.php');
+    }
+    else if($_GET['action'] == 'add-points-exec') {
+        authenticate_page(1);
+        echo '<div class="row"> <div class="col-lg-12">
+        <div class="row"><h1>Status</h1>
+        <hr/>';
+        if(isset($_POST['login'])){
+            if($results = mysql_query("SELECT * FROM users WHERE login='{$_POST['login']}' LIMIT 1")) {
+            if($userr = mysql_fetch_object($results)){
+                mysql_query("UPDATE users SET coins=coins+{$_POST['points']} WHERE id={$userr->id}");
+                mysql_query("INSERT INTO statistics (user_id,date,coins_gained,admin,log,page) VALUES ({$userr->id},NOW(),{$_POST['points']},1,'<b style=\"color:yellow;\">Points Added From Administrator</b>','users-interface-add-points-exec')");
+                $message = '<p>Points added to: '.$userr->login.'</p>';
+            }
+            else {
+                $message = "<p>Points Not added. User not found.</p>";
+            }
+            }
+            else {
+                $message = "<p>Undefined System error</p>";
+            }
+        }
+        else {
+            $message = "<p>Please fill up the form before proceeding</p>";
+        }
+        echo $message;
+        echo '</div> </div> </div>';
     }
     else if($_GET['action'] == "send-email") {
         authenticate_page(1);
