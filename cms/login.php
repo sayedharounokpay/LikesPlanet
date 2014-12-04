@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+error_reporting(E_ALL);
+if(session_id() == '' || !isset($_SESSION)) {
+    // session isn't started
+    session_start();
+}
+?>
 <html>
     <head>
         <!-- Latest compiled and minified CSS -->

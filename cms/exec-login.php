@@ -1,10 +1,6 @@
 <?php
 require_once('conn.php');
-error_reporting(E_ALL);
-if(session_id() == '' || !isset($_SESSION)) {
-    // session isn't started
-    session_start();
-}
+
     $result = FALSE;
     $err = "undefined";
 if(isset($_POST['admin_username'])) {
@@ -53,10 +49,10 @@ else
     <head>
         <?php
 if($result) {
-    echo '<script>document.location.href="dashboard.php"</script>';
+    echo '<script>document.location.href="dashboard.php"</script>';exit;
 }
 else {
-    echo '<script>document.location.href="login.php?err='.$err.'"</script>';  
+    echo '<script>document.location.href="login.php?err='.$err.'"</script>';exit;
 }
 ?>
     </head>
