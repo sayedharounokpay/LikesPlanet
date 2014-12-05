@@ -33,7 +33,7 @@ $rawarr=array();
 $year = date("Y");
 for($i=1;$i<=12;$i++) {
     $rawarr[$i] = 0;
-    $obj = quer("SELECT count(id) as usercount FROM users WHERE YEAR(online)='{$year}' AND MONTH(online)='{$i}'");
+    $obj = quer("SELECT count(id) as usercount FROM users WHERE YEAR(signup)='{$year}' AND MONTH(signup)='{$i}'");
     $rawarr[$i] = $obj->usercount;
 }
 $i=1;
