@@ -326,9 +326,12 @@ class dbTable {
            
             if($i > 0 && $i <=$pages) {
                 $new_link = str_replace('pagenum='.$pagenum, 'pagenum='.$i, $actual_link);
+                if(strpos($new_link,'pagenum=') == false) {
+                    $new_link.='&pagenum='.$i;
+                }
                 $new_link = str_replace('search=true','searchthrough=true',$new_link);
                 if($new_link == $actual_link) {
-                    //$new_link = $actual_link.'&pagenum='.$i;
+                    $new_link = $actual_link.'&pagenum='.$i;
                 }
                 if($i == $pagenum) echo '<li><a class="active" href="#">'.$i.'</a></li>';
                 else echo '<li><a href="'.$new_link.'">'.$i.'</a></li>';
