@@ -282,7 +282,7 @@ class dbTable {
         $count = $row[0];
         
         $pages = round($count/$this->limit);
-        
+        $pages++;
         $action = "";
         if(isset($_GET['action'])){
             $action=$_GET['action'];
@@ -313,7 +313,7 @@ class dbTable {
             $count = $row[0];
             
             $pages = round($count/$this->limit);
-           
+            $pages++;
             $action = "";
         if(isset($_GET['action'])){
             $action=$_GET['action'];
