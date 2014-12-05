@@ -40,6 +40,7 @@ if(isset($_GET['action'])) {
             if($results = $db->query($query)){
             if($userr = $results->fetch_assoc() ){
                 $db->query("UPDATE users SET coins=coins+{$_POST['points']} WHERE id={$userr['id']}");
+                $db->query("UPDATE users SET beforeref=coins WHERE id={$userr['id']}");
                 $db->query("INSERT INTO statistics (user_id,date,coins_gained,admin,log,page) VALUES ({$userr['id']},NOW(),{$_POST['points']},1,'<b style=\"color:orange;\">Points Added From Administrator</b>','users-interface-add-points-exec')");
                 $message = '<h1><b style="color:green">'.$_POST['points'].'</b> Points added to: '.$userr['login'].'</h1>';
             }
