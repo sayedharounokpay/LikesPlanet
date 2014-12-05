@@ -320,6 +320,7 @@ class dbTable {
         }
         $pagenum = $this->pagenum + 1;
         $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        echo '<b style="font-size:8px;font-family:Roman;font-style:italic;">Browsing... page '.$pagenum.' Of '.$pages.'</b><br/>';
         echo '<ul class="pagination">';
         for($i = $pagenum - 5; $i < $pagenum + 5; $i++) 
         {
@@ -333,7 +334,7 @@ class dbTable {
                 if($new_link == $actual_link) {
                     $new_link = $actual_link.'&pagenum='.$i;
                 }
-                if($i == $pagenum) echo '<li><a class="active" href="#">'.$i.'</a></li>';
+                if($i == $pagenum) echo '<li><a class="active" style="background-color:#f2f2f2;" href="#">'.$i.'</a></li>';
                 else echo '<li><a href="'.$new_link.'">'.$i.'</a></li>';
             }
         }
