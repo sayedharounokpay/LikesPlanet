@@ -44,6 +44,7 @@ function check_admin(){
          <script src="<?=$baselocation?>/js/jquery.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="<?=$baselocation?>/js/bootstrap.min.js"></script>
+        <script src="<?=$baselocation?>/js/chartjs/Chart.js"></script>
        
     </head>
     <body>
