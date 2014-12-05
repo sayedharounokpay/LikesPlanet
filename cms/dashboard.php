@@ -39,29 +39,19 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
         </div>
         <div class="row section-charts">
             <div class="col-lg-6">
-            <b>User Activity</b><br/>
+            <b>User Activity (in User Number)</b><br/>
             <div style="width: 100%">
                 <canvas id="canvas" height="200" width="600"></canvas>
             </div>
             </div>
             <div class="col-lg-6">
-                <b>Payment Statistics</b>
+                <b>Payment Statistics (in USD $)</b>
                 <div style="width: 100%">
                     <canvas id="canvas2" height="200" width="600"></canvas>
                 </div>
             </div>
         </div>
-        <div class="row">
-           
-            
-            <div class="devblog">
-                <h3>Developers Blog</h3>
-                <div class="row post">
-                    <h5>Post Title 2014-05-12</h5>
-                    <p>Lorem Ipsum dolor sit amet.</p>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
 <!--JS CHARTS-->
