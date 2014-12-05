@@ -39,7 +39,7 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
         </div>
         <div class="row section-charts">
             <div class="col-lg-6">
-            <b>User Activity (in User Number)</b><br/>
+            <b>User Activity (User Signups)</b><br/>
             <div style="width: 100%">
                 <canvas id="canvas" height="200" width="600"></canvas>
             </div>
