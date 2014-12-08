@@ -57,8 +57,9 @@ foreach($cashAct as $key=>$val){
 
 $site_stats->cash_activity = $cashAct;
 $month = date("m");
+$day=date("d");
 //Get purchases today
-$obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND valid=1");
+$obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
 $site_stats->cash_today = $obj->sumcash;
 
 //Get
