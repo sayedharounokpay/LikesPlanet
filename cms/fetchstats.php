@@ -62,4 +62,20 @@ $day=date("d");
 $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
 $site_stats->cash_today = $obj->sumcash;
 
-//Get
+$rawarr=array();
+//Get 7 days previous
+for($i=1;$i++;$i<=7){
+    if($day <= 0) {
+        $month--;
+        if($month <= 0) {
+            $year--;
+            $month=12;
+        }
+        $day = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+    }
+    $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
+    $datestring = "{$day}-{$month}-{$year}";    
+    $rawarr[$datestring] = $obj->sumcash;
+    }
+    $site_stats->cash_daily=$rawarr;
+    

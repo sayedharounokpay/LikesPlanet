@@ -50,6 +50,17 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
                     <canvas id="canvas2" height="200" width="600"></canvas>
                 </div>
             </div>
+
+        </div>
+        <div class="row section-charts">
+            <div class="col-lg-12">
+            <b>Cash Activity (7 Days)</b><br/>
+            <div style="width: 100%">
+                <canvas id="canvas3" height="300" width="600"></canvas>
+            </div>
+            </div>
+           
+
         </div>
         
     </div>
@@ -111,6 +122,37 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
             end($site_stats->cash_activity);
             $last_key = key($site_stats->cash_activity);
                 foreach($site_stats->cash_activity as $key=>$val){
+                    echo $val;
+                    if($key != $last_key) echo ',';
+                }
+            ?>]
+				},
+				
+			]
+    
+    
+            var lineChartData3 = {
+			labels : [<?php
+            end($site_stats->cash_daily);
+            $last_key = key($site_stats->cash_daily);
+                foreach($site_stats->cash_daily as $key=>$val){
+                    echo '"'.$key.'"';
+                    if($key != $last_key) echo ',';
+                }
+            ?>],
+			datasets : [
+				{
+					label: "Cash Activity",
+					fillColor : "rgba(255,183,57,0.2)",
+					strokeColor : "rgba(255,183,57,1)",
+					pointColor : "rgba(255,183,57,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(220,220,220,1)",
+					data : [<?php
+            end($site_stats->cash_daily);
+            $last_key = key($site_stats->cash_daily);
+                foreach($site_stats->cash_daily as $key=>$val){
                     echo $val;
                     if($key != $last_key) echo ',';
                 }
