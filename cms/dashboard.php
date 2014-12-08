@@ -54,7 +54,7 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
         </div>
         <div class="row section-charts" style="margin-top:55px;">
             <div class="col-lg-12">
-            <b>Cash Activity (7 Days)</b><br/>
+            <b>Cash Activity (30 Days) (in USD $)</b><br/>
             <div style="width: 100%">
                 <canvas id="canvas3" height="200" width="600"></canvas>
             </div>

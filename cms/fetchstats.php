@@ -66,7 +66,7 @@ $rawarr=array();
 //Get 7 days previous
 $i=0;
 $day++;
-while($i<7){
+while($i<30){
      
     $day--;
     if($day <= 0) {
