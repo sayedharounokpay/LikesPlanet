@@ -76,6 +76,7 @@ for($i=1;$i++;$i<=7){
     $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
     $datestring = "{$day}-{$month}-{$year}";    
     $rawarr[$datestring] = $obj->sumcash;
+    $day--;
     }
     $site_stats->cash_daily=$rawarr;
     
