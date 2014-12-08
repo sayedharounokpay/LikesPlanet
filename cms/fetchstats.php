@@ -43,6 +43,10 @@ foreach($userActivity as $key=>$val){
 }
 $site_stats->user_activity = $userActivity;
 
+//Website Stats HITS
+    $obj=quer("SELECT COUNT(id) as hitcount FROM statistics WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
+    $site_stats->hit_count= $obj->hitcount;
+
 
 for($i=1;$i<=12;$i++) {
     $rawarr[$i] = 0;
@@ -84,4 +88,6 @@ while($i<30){
     $i++;
     }
     $site_stats->cash_daily=  array_reverse($rawarr);
+    
+    
     
