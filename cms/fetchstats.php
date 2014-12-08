@@ -83,5 +83,5 @@ while($i<7){
     
     $i++;
     }
-    $site_stats->cash_daily=$rawarr;
+    $site_stats->cash_daily=  array_reverse($rawarr);
     
