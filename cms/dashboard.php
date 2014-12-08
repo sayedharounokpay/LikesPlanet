@@ -28,7 +28,7 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
                 <tr>
                     <td>Users Online Today: <?=$site_stats->user_today;?></td>
                     <td>Hits Today:</td>
-                    <td>Purchase today: </td>
+                    <td>Purchase today: <?=$site_stats->cash_today;?></td>
                    
                     <td class="systemtime">System Date/Time: <?php echo date('Y-m-d | h:i:s a');?></td>
                  
