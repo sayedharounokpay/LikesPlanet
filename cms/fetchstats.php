@@ -66,7 +66,7 @@ $rawarr=array();
 //Get 7 days previous
 $i=0;
 $day++;
-while($i<7){
+while($i<30){
      
     $day--;
     if($day <= 0) {
@@ -78,9 +78,9 @@ while($i<7){
         $day = cal_days_in_month(CAL_GREGORIAN, $month, $year);
     }
     $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
-    $datestring = "{$day}-{$month}-{$year}";    
-    $rawarr[$datestring] = $obj->sumcash;
-    
+    $datestring = "{$day}-{$month}-{$year}";  
+    if($obj->sumcash > 0) $rawarr[$datestring] = $obj->sumcash;
+    else $rawarr[$datestring] = 0;
     $i++;
     }
     $site_stats->cash_daily=  array_reverse($rawarr);
