@@ -73,10 +73,12 @@ for($i=1;$i++;$i<=7){
         }
         $day = cal_days_in_month(CAL_GREGORIAN, $month, $year);
     }
-    $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
+    //$obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
     $datestring = "{$day}-{$month}-{$year}";    
-    $rawarr[$datestring] = $obj->sumcash;
+    //$rawarr[$datestring] = $obj->sumcash;
+    echo $datestring;
     $day--;
+    
     }
-    $site_stats->cash_daily=$rawarr;
+    //$site_stats->cash_daily=$rawarr;
     
