@@ -52,11 +52,11 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
             </div>
 
         </div>
-        <div class="row section-charts">
+        <div class="row section-charts" style="margin-top:55px;">
             <div class="col-lg-12">
             <b>Cash Activity (7 Days)</b><br/>
             <div style="width: 100%">
-                <canvas id="canvas3" height="300" width="600"></canvas>
+                <canvas id="canvas3" height="200" width="600"></canvas>
             </div>
             </div>
            
@@ -129,6 +129,7 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
 				},
 				
 			]
+    }
     
     
             var lineChartData3 = {
@@ -142,7 +143,7 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
             ?>],
 			datasets : [
 				{
-					label: "Cash Activity",
+					label: "Cash Daily",
 					fillColor : "rgba(255,183,57,0.2)",
 					strokeColor : "rgba(255,183,57,1)",
 					pointColor : "rgba(255,183,57,1)",
@@ -170,6 +171,10 @@ require_once('fetchstats.php'); // Fetches All statistics Needed from the websit
         
         var ctx = document.getElementById("canvas2").getContext("2d");
 		window.myLine = new Chart(ctx).Line(lineChartData2, {
+			responsive: true
+		});
+        var ctx = document.getElementById("canvas3").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData3, {
 			responsive: true
 		});
 	}
