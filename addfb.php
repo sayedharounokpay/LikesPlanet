@@ -54,6 +54,9 @@ $likesnumnum = file_get_contents($url0);
 $verificare = 0;
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `facebook`='{$_POST['url']}'");
 $verificareA = mysql_num_rows($verificare1);
+if($_SESSION['login'] == 'admin') {
+   $verificareA = 0;
+}
 
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `id`='{$str}'");
 $verificareB = mysql_num_rows($verificare1);
