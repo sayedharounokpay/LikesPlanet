@@ -7,8 +7,8 @@
 </div>
 
 <script>
-    function get_user_id() {
-        
+    function get_user_id(resid) {
+        resid = resid || '#user_id';
         var userlogin = $('#userlogin').val();
         var url_type = '<?=$baselocation;?>/ajax-functions.php';
         $.ajax({
@@ -20,7 +20,7 @@
                
                 if(isNaN(data)) alert(data);
                 else{  
-                    $('#user_id').val(data); 
+                    $(resid).val(data); 
                     
                     }
             }

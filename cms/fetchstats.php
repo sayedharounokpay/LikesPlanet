@@ -31,10 +31,26 @@ $cashAct = array('Jan'=>0,'Feb'=>0,'Mar'=>0,'Apr'=>0,'May'=>0,'June'=>0,'July'=>
 $rawarr=array();
 
 $year = date("Y");
+if(!isset($_SESSION['prevstats'])){
+    $_SESSION['prevstats'] = array();
+}
 for($i=1;$i<=12;$i++) {
     $rawarr[$i] = 0;
-    $obj = quer("SELECT count(id) as usercount FROM users WHERE YEAR(signup)='{$year}' AND MONTH(signup)='{$i}'");
+    if($i != date("m"))
+    {
+        if($_SESSION['prevstats']['userActivity'][$i]){
+            $obj = $_SESSION['prevstats']['userActivity'][$i];
+        }
+        
+    }
+    
+    if($obj == 0){
+            $obj = quer("SELECT count(id) as usercount FROM users WHERE YEAR(signup)='{$year}' AND MONTH(signup)='{$i}'");
+            $_SESSION['prevstats']['userActivity'][$i] = $obj;
+    }
+    
     $rawarr[$i] = $obj->usercount;
+    
 }
 $i=1;
 foreach($userActivity as $key=>$val){
