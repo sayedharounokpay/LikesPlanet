@@ -54,9 +54,7 @@ $likesnumnum = file_get_contents($url0);
 $verificare = 0;
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `facebook`='{$_POST['url']}'");
 $verificareA = mysql_num_rows($verificare1);
-if($_SESSION['login'] == 'admin') {
-   $verificareA = 0;
-}
+
 
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `id`='{$str}'");
 $verificareB = mysql_num_rows($verificare1);
@@ -64,7 +62,7 @@ $verificareB = mysql_num_rows($verificare1);
 $verificare1 = mysql_query("SELECT * FROM `facebook` WHERE `user`='{$data->id}'");
 $verificareC = mysql_num_rows($verificare1);
 
-if($data->id == 1){ $verificareA = $verificareB = $verificareC = 1;}
+if($data->id == 1){ $verificareA = $verificareB = $verificareC = 0;}
 
 if($verificareA > 0) {
 $message = "Error: Page Added before by You or someone else!</br>Click on (My Pages) to see if you added before,</br>Add Points on your page to get more likes.</br>If page not added before by you, Contact us to add."; $message2 = 1;
