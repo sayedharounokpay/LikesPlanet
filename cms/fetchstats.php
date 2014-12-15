@@ -67,8 +67,18 @@ $site_stats->user_activity = $userActivity;
 
 for($i=1;$i<=12;$i++) {
     $rawarr[$i] = 0;
+    $obj = 0;
+    if($i != date("m")){
+        if($_SESSION['prevstats']['cashAct'][$i]){
+            $obj = $_SESSION['prevstats']['cashAct'][$i];
+        }
+         
+    }
+    if($obj == 0){
         $obj = quer("SELECT SUM(money) as moneysum FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$i}'");
-    $rawarr[$i] = $obj->moneysum;
+        $_SESSION['prevstats']['cashAct'][$i] = $obj;
+    }
+        $rawarr[$i] = $obj->moneysum;
 }
 $i=1;
 foreach($cashAct as $key=>$val){
@@ -98,7 +108,17 @@ while($i<30){
         }
         $day = cal_days_in_month(CAL_GREGORIAN, $month, $year);
     }
+    $obj = 0;
+    if($day != date("d")){
+        if($_SESSION['prevstats']['dailystats'][$day][$month][$year]){
+            $obj = $_SESSION['prevstats']['dailystats'][$day][$month][$year];
+        }
+    }
+    if($obj == 0){
     $obj = quer("SELECT SUM(money) as sumcash FROM fakeorders WHERE YEAR(date)='{$year}' AND MONTH(date)='{$month}' AND DAY(date)='{$day}'");
+    $_SESSION['prevstats']['dailystats'][$day][$month][$year] = $obj;
+    
+    }
     $datestring = "{$day}-{$month}-{$year}";  
     if($obj->sumcash > 0) $rawarr[$datestring] = $obj->sumcash;
     else $rawarr[$datestring] = 0;
