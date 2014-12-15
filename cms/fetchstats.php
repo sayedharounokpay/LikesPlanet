@@ -36,6 +36,7 @@ if(!isset($_SESSION['prevstats'])){
 }
 for($i=1;$i<=12;$i++) {
     $rawarr[$i] = 0;
+    $obj = 0;
     if($i != date("m"))
     {
         if($_SESSION['prevstats']['userActivity'][$i]){
