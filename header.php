@@ -190,9 +190,9 @@ function numberWithCommas(x) {
 </head>
 <body>
     
-<!--<div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
-<span style="color:red">Notification:</span> On November 4, 2014 12:00 A.M - 3:00 AM (EST), There will be a security enhancement on the site to further increase the security and performance of the system. The site might be down for you during these times. We thank you for your patience and understanding. <br/> Best Regards, The LikesPlanet Team
-</div>-->
+<div align="center" style="padding-left:20px; padding-right:20px; padding-bottom:10px; color:#3399FF; font-family:Calibri; border-bottom:solid 1px; border-bottom-color:red">
+<span style="color:red">Notification:</span> On December 16, 2014 12:00 A.M - 9:00 AM (EST) (note: possible start by December 15, 2014 10:00 PM), There will be a maintenance / enhancement on the site to further increase the security and performance of the system. The site might be down for you during these times. We thank you for your patience and understanding. <br/> Best Regards, The LikesPlanet Team
+</div>
 
 	    <div class="headerContainer">
 		<div class="headerInner">
