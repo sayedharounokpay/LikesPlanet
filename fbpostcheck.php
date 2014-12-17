@@ -42,7 +42,7 @@ $site21f = mysql_query("SELECT * FROM `postdone` WHERE (`site_id`='{$_POST['id']
 $extf = mysql_num_rows($site21f);
 if($extf == 0){
 
-mysql_query("INSERT INTO `postdone` (user_id, site_id) VALUES('{$data->id}', '{$_POST['id']}' ) ");
+mysql_query("INSERT INTO `postdone` (user_id, site_id, points, date) VALUES('{$data->id}', '{$_POST['id']}' , {$site11->cpc} , NOW() ) ");
 
 mysql_query("UPDATE `post` SET `points`=`points`-'{$site11->cpc}', `likes`=`likes`+1   WHERE `id`='{$_POST['id']}'");
 
